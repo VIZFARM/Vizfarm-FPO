@@ -1,3 +1,6 @@
+
+
+Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;0,9..144,700;1,9..144,450&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-
+ 
 /* ============ TOKENS ============ */
 :root{
   --forest:#163832;
@@ -25,14 +28,14 @@
   --ink-soft:#4A5850;
   --paper:#FCFAF4;
   --line: rgba(20,32,27,0.12);
-
+ 
   --display: 'Fraunces', serif;
   --body: 'Inter', sans-serif;
   --mono: 'IBM Plex Mono', monospace;
-
+ 
   --maxw: 1180px;
 }
-
+ 
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 @media (prefers-reduced-motion: reduce){
@@ -54,7 +57,7 @@ p{margin:0;}
 ul{margin:0;padding:0;list-style:none;}
 button{font-family:inherit;cursor:pointer;}
 :focus-visible{outline:2.5px solid var(--clay); outline-offset:3px;}
-
+ 
 .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
 .eyebrow{
   font-family:var(--mono);
@@ -82,10 +85,10 @@ button{font-family:inherit;cursor:pointer;}
 .btn-outline:hover{background:rgba(255,255,255,0.12); transform:translateY(-2px);}
 .btn-outline-dark{border-color:var(--forest); color:var(--forest);}
 .btn-outline-dark:hover{background:var(--forest); color:var(--paper); transform:translateY(-2px);}
-
+ 
 .reveal{opacity:0; transform:translateY(26px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);}
 .reveal.in{opacity:1; transform:translateY(0);}
-
+ 
 /* placeholder media blocks */
 .ph{
   position:relative; overflow:hidden;
@@ -107,7 +110,8 @@ button{font-family:inherit;cursor:pointer;}
 .ph-moss{background-color:var(--moss);}
 .ph-sand{background-color:var(--sand-deep);}
 .ph-sand .ph-label{color:var(--ink); background:rgba(245,241,230,0.7); border-color:var(--line);}
-
+.ph-photo{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;}
+ 
 /* ============ NAV ============ */
 header{
   position:fixed; top:0; left:0; right:0; z-index:100;
@@ -138,13 +142,13 @@ header{
 }
 .mobile-menu.open{display:block;}
 .mobile-menu a{display:block; padding:16px 0; font-size:19px; font-family:var(--display); font-weight:500; color:var(--forest); border-bottom:1px solid var(--line);}
-
+ 
 @media (max-width:920px){
   .navlinks{display:none;}
   .nav-cta .btn-outline-dark-desktop{display:none;}
   .burger{display:flex;}
 }
-
+ 
 /* ============ HERO ============ */
 .hero{
   position:relative; overflow:hidden;
@@ -168,7 +172,7 @@ header{
 .hero-actions{margin-top:38px; display:flex; gap:16px; flex-wrap:wrap;}
 .hero-visual{position:relative; aspect-ratio:4/5; border:1px solid rgba(255,255,255,0.18);}
 .hero-visual .ph{height:100%;}
-
+ 
 .tideline{position:relative; height:210px; margin-top:20px;}
 .tideline svg{width:100%; height:100%; display:block;}
 .tide-station{
@@ -179,15 +183,15 @@ header{
 .tide-dot{width:11px; height:11px; border-radius:50%; background:var(--clay-soft); border:2px solid var(--paper); margin-bottom:10px;}
 .tide-station .tstag{font-family:var(--mono); font-size:10px; letter-spacing:0.08em; color:var(--clay-soft); text-transform:uppercase;}
 .tide-station .tlabel{font-family:var(--display); font-size:15px; margin-top:4px; color:var(--paper);}
-
+ 
 @media (max-width:920px){
   .hero-grid{grid-template-columns:1fr; padding-bottom:60px;}
   .hero-visual{aspect-ratio:16/10;}
 }
-
+ 
 /* ============ WAVE DIVIDER ============ */
 .wave-divider{display:block; width:100%; height:64px; margin-top:-1px;}
-
+ 
 /* ============ ABOUT ============ */
 .about{background:var(--paper);}
 .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:start;}
@@ -197,7 +201,7 @@ header{
 .mission-list{margin-top:14px; display:grid; gap:10px;}
 .mission-list li{display:flex; gap:12px; align-items:flex-start; color:var(--ink-soft); font-size:15.5px;}
 .mission-list li::before{content:"";width:6px;height:6px;background:var(--clay); margin-top:9px; flex:none;}
-
+ 
 .timeline{margin-top:10px;}
 .timeline-track{display:flex; overflow-x:auto; gap:0; padding-bottom:16px; scrollbar-width:thin;}
 .tstep{flex:none; width:190px; padding-right:26px; position:relative;}
@@ -205,7 +209,7 @@ header{
 .tstep:last-child::after{display:none;}
 .tstep .num{font-family:var(--mono); font-size:12px; color:var(--tide); margin-bottom:14px; display:block;}
 .tstep h4{font-size:16px; color:var(--forest); font-family:var(--body); font-weight:700;}
-
+ 
 /* ============ WHAT WE DO ============ */
 .what{background:var(--sand);}
 .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
@@ -216,7 +220,7 @@ header{
 .card p{margin-top:10px; color:var(--ink-soft); font-size:14.5px;}
 @media (max-width:860px){.cards{grid-template-columns:1fr 1fr;}}
 @media (max-width:560px){.cards{grid-template-columns:1fr;}}
-
+ 
 /* ============ PRODUCTS ============ */
 .products{background:var(--paper);}
 .prod-tabs{display:flex; gap:8px; margin-bottom:36px; flex-wrap:wrap;}
@@ -234,7 +238,7 @@ header{
 .pitem .pname{position:absolute; bottom:12px; left:12px; right:12px; font-family:var(--body); font-weight:600; font-size:13.5px; color:var(--paper); z-index:2;}
 @media (max-width:900px){.prod-panel.active{grid-template-columns:repeat(3,1fr);}}
 @media (max-width:560px){.prod-panel.active{grid-template-columns:repeat(2,1fr);}}
-
+ 
 /* ============ FARM TO MARKET ============ */
 .f2m{background:var(--forest); color:var(--paper); position:relative; overflow:hidden;}
 .f2m .section-head h2{color:var(--paper);}
@@ -258,7 +262,7 @@ header{
   .route-line{display:none;}
 }
 @media (max-width:520px){.route-stops{grid-template-columns:repeat(2,1fr);}}
-
+ 
 /* ============ VIZHINJAM ADVANTAGE ============ */
 .advantage{background:var(--tide); color:var(--paper); position:relative;}
 .adv-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
@@ -273,7 +277,7 @@ header{
 }
 .adv-visual .ph{aspect-ratio:1/1;}
 @media (max-width:900px){.adv-grid{grid-template-columns:1fr;}}
-
+ 
 /* ============ MEMBERSHIP ============ */
 .membership{background:var(--sand);}
 .mem-grid{display:grid; grid-template-columns:1fr 1.15fr; gap:64px;}
@@ -299,7 +303,7 @@ header{
 .form-msg{margin-top:14px; font-size:13.5px; color:var(--moss); display:none;}
 .form-msg.show{display:block;}
 @media (max-width:900px){.mem-grid{grid-template-columns:1fr;} .field-row{grid-template-columns:1fr;}}
-
+ 
 /* ============ PROJECTS ============ */
 .projects{background:var(--paper);}
 .proj-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:26px;}
@@ -310,7 +314,7 @@ header{
 .proj-card .readmore{display:inline-block; margin-top:14px; font-size:13px; font-weight:600; color:var(--clay); border-bottom:1px solid var(--clay); padding-bottom:2px;}
 @media (max-width:920px){.proj-grid{grid-template-columns:1fr 1fr;}}
 @media (max-width:560px){.proj-grid{grid-template-columns:1fr;}}
-
+ 
 /* ============ NEWS ============ */
 .news{background:var(--forest-deep); color:var(--paper);}
 .news .section-head h2{color:var(--paper);}
@@ -326,7 +330,7 @@ header{
 .news-item h4{font-size:18px; font-weight:500;}
 .news-item .tag{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--clay-soft); border:1px solid rgba(255,255,255,0.25); padding:6px 12px; white-space:nowrap;}
 @media (max-width:640px){.news-item{grid-template-columns:1fr; gap:10px;} .news-item .tag{justify-self:start;}}
-
+ 
 /* ============ GALLERY ============ */
 .gallery{background:var(--sand);}
 .gal-filters{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:32px;}
@@ -346,7 +350,7 @@ header{
 .lightbox-inner .ph{aspect-ratio:4/3;}
 .lightbox-close{position:absolute; top:-46px; right:0; background:none; border:none; color:var(--paper); font-size:32px; line-height:1;}
 .lightbox-cap{color:var(--paper); font-family:var(--mono); font-size:12.5px; margin-top:16px; text-align:center; letter-spacing:0.04em;}
-
+ 
 /* ============ CONTACT ============ */
 .contact{background:var(--paper);}
 .contact-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px;}
@@ -357,7 +361,7 @@ header{
 .social-row a{width:42px; height:42px; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; transition:all .25s ease;}
 .social-row a:hover{background:var(--forest); border-color:var(--forest); color:var(--paper);}
 .map-ph{aspect-ratio:16/9; margin-top:30px;}
-
+ 
 /* ============ FOOTER ============ */
 footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px 0 30px;}
 .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:50px;}
@@ -370,7 +374,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
 .foot-bottom{margin-top:60px; padding-top:26px; border-top:1px solid rgba(255,255,255,0.12); display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; font-size:13px; color:rgba(252,250,244,0.5);}
 @media (max-width:860px){.foot-grid{grid-template-columns:1fr 1fr;}}
 @media (max-width:520px){.foot-grid{grid-template-columns:1fr;}}
-
+ 
 @media (max-width:768px){
   .section{padding:76px 0;}
   .about-grid, .adv-grid, .mem-grid, .contact-grid{grid-template-columns:1fr;}
@@ -378,7 +382,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
 </style>
 </head>
 <body>
-
+ 
 <!-- ============ HEADER / NAV ============ -->
 <header>
   <div class="nav">
@@ -420,7 +424,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
     <a href="#contact">Contact</a>
   </div>
 </header>
-
+ 
 <!-- ============ HERO ============ -->
 <section class="hero" id="home">
   <div class="hero-grid">
@@ -434,10 +438,10 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
       </div>
     </div>
     <div class="hero-visual">
-      <div class="ph ph-tide"><span class="ph-label">Photo placeholder — farms &amp; coastline, Vizhinjam</span></div>
+      <div class="ph ph-tide"><img class="ph-photo" src="https://loremflickr.com/800/1000/kerala,coast,farm" alt="Farms and coastline near Vizhinjam, Kerala"></div>
     </div>
   </div>
-
+ 
   <!-- Signature element: the tideline -->
   <div class="wrap">
     <div class="tideline" id="tideline">
@@ -453,7 +457,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
   </div>
 </section>
 <svg class="wave-divider" viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,30 C300,60 900,0 1200,30 L1200,60 L0,60 Z" fill="#FCFAF4"/></svg>
-
+ 
 <!-- ============ ABOUT ============ -->
 <section class="about section" id="about">
   <div class="wrap">
@@ -479,7 +483,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
         </ul>
       </div>
       <div class="reveal">
-        <div class="ph ph-forest" style="aspect-ratio:4/5; margin-bottom:28px;"><span class="ph-label">Photo placeholder — Board / farmer members</span></div>
+        <div class="ph ph-forest" style="aspect-ratio:4/5; margin-bottom:28px;"><img class="ph-photo" src="https://loremflickr.com/800/1000/farmers,india,group" alt="Farmer members and board of VIZFARM"></div>
         <div class="timeline">
           <div class="eyebrow" style="margin-bottom:18px;">Our Path</div>
           <div class="timeline-track">
@@ -495,7 +499,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
     </div>
   </div>
 </section>
-
+ 
 <!-- ============ WHAT WE DO ============ -->
 <section class="what section" id="what-we-do">
   <div class="wrap">
@@ -516,7 +520,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
     </div>
   </div>
 </section>
-
+ 
 <!-- ============ PRODUCTS ============ -->
 <section class="products section" id="products">
   <div class="wrap">
@@ -532,27 +536,27 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
     </div>
     <div class="prod-panels reveal">
       <div class="prod-panel active" id="fresh">
-        <div class="pitem"><div class="ph ph-moss"><span class="pname">Vegetables</span></div></div>
-        <div class="pitem"><div class="ph ph-clay"><span class="pname">Fruits</span></div></div>
-        <div class="pitem"><div class="ph ph-forest"><span class="pname">Banana</span></div></div>
-        <div class="pitem"><div class="ph ph-tide"><span class="pname">Mango</span></div></div>
-        <div class="pitem"><div class="ph ph-moss"><span class="pname">Jackfruit</span></div></div>
+        <div class="pitem"><div class="ph ph-moss"><img class="ph-photo" src="https://loremflickr.com/600/800/vegetables,market" alt="Vegetables"><span class="pname">Vegetables</span></div></div>
+        <div class="pitem"><div class="ph ph-clay"><img class="ph-photo" src="https://loremflickr.com/600/800/tropicalfruit,basket" alt="Fruits"><span class="pname">Fruits</span></div></div>
+        <div class="pitem"><div class="ph ph-forest"><img class="ph-photo" src="https://loremflickr.com/600/800/banana,plantation" alt="Banana"><span class="pname">Banana</span></div></div>
+        <div class="pitem"><div class="ph ph-tide"><img class="ph-photo" src="https://loremflickr.com/600/800/mango,fruit" alt="Mango"><span class="pname">Mango</span></div></div>
+        <div class="pitem"><div class="ph ph-moss"><img class="ph-photo" src="https://loremflickr.com/600/800/jackfruit" alt="Jackfruit"><span class="pname">Jackfruit</span></div></div>
       </div>
       <div class="prod-panel" id="spices">
-        <div class="pitem"><div class="ph ph-clay"><span class="pname">Pepper</span></div></div>
-        <div class="pitem"><div class="ph ph-forest"><span class="pname">Cardamom</span></div></div>
-        <div class="pitem"><div class="ph ph-moss"><span class="pname">Ginger</span></div></div>
-        <div class="pitem"><div class="ph ph-tide"><span class="pname">Nutmeg</span></div></div>
+        <div class="pitem"><div class="ph ph-clay"><img class="ph-photo" src="https://loremflickr.com/600/800/blackpepper,spice" alt="Pepper"><span class="pname">Pepper</span></div></div>
+        <div class="pitem"><div class="ph ph-forest"><img class="ph-photo" src="https://loremflickr.com/600/800/cardamom,spice" alt="Cardamom"><span class="pname">Cardamom</span></div></div>
+        <div class="pitem"><div class="ph ph-moss"><img class="ph-photo" src="https://loremflickr.com/600/800/ginger,root" alt="Ginger"><span class="pname">Ginger</span></div></div>
+        <div class="pitem"><div class="ph ph-tide"><img class="ph-photo" src="https://loremflickr.com/600/800/nutmeg,spice" alt="Nutmeg"><span class="pname">Nutmeg</span></div></div>
       </div>
       <div class="prod-panel" id="value">
-        <div class="pitem"><div class="ph ph-tide"><span class="pname">Processed Foods</span></div></div>
-        <div class="pitem"><div class="ph ph-clay"><span class="pname">Packaged Products</span></div></div>
-        <div class="pitem"><div class="ph ph-forest"><span class="pname">VIZFARM Branded Range — Coming Soon</span></div></div>
+        <div class="pitem"><div class="ph ph-tide"><img class="ph-photo" src="https://loremflickr.com/600/800/foodprocessing,factory" alt="Processed Foods"><span class="pname">Processed Foods</span></div></div>
+        <div class="pitem"><div class="ph ph-clay"><img class="ph-photo" src="https://loremflickr.com/600/800/foodpackaging,boxes" alt="Packaged Products"><span class="pname">Packaged Products</span></div></div>
+        <div class="pitem"><div class="ph ph-forest"><img class="ph-photo" src="https://loremflickr.com/600/800/branding,label,design" alt="VIZFARM Branded Range"><span class="pname">VIZFARM Branded Range — Coming Soon</span></div></div>
       </div>
     </div>
   </div>
 </section>
-
+ 
 <!-- ============ FARM TO MARKET ============ -->
 <section class="f2m section" id="farm-to-market">
   <div class="wrap">
@@ -575,7 +579,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
     </div>
   </div>
 </section>
-
+ 
 <!-- ============ VIZHINJAM ADVANTAGE ============ -->
 <section class="advantage section" id="vizhinjam-advantage">
   <div class="wrap adv-grid">
@@ -586,11 +590,11 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
       <span class="adv-tag">Future potential &amp; opportunity — not a current export claim</span>
     </div>
     <div class="adv-visual reveal">
-      <div class="ph ph-sand"><span class="ph-label">Photo placeholder — port &amp; agricultural connectivity</span></div>
+      <div class="ph ph-sand"><img class="ph-photo" src="https://loremflickr.com/800/800/port,harbor,ship" alt="Port and agricultural connectivity near Vizhinjam"></div>
     </div>
   </div>
 </section>
-
+ 
 <!-- ============ MEMBERSHIP ============ -->
 <section class="membership section" id="membership">
   <div class="wrap mem-grid">
@@ -628,7 +632,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
     </div>
   </div>
 </section>
-
+ 
 <!-- ============ PROJECTS ============ -->
 <section class="projects section" id="projects">
   <div class="wrap">
@@ -638,28 +642,28 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
     </div>
     <div class="proj-grid reveal">
       <div class="proj-card">
-        <div class="ph ph-moss"><span class="ph-label">Photo placeholder</span></div>
+        <div class="ph ph-moss"><img class="ph-photo" src="https://loremflickr.com/800/600/kitchengarden,vegetables" alt="Kitchen Garden Initiative"></div>
         <div class="proj-meta"><span>Kitchen Gardens</span><span>Placeholder date</span></div>
         <h4>Kitchen Garden Initiative</h4>
         <p>Description placeholder — details to be added.</p>
         <span class="readmore">Read More →</span>
       </div>
       <div class="proj-card">
-        <div class="ph ph-clay"><span class="ph-label">Photo placeholder</span></div>
+        <div class="ph ph-clay"><img class="ph-photo" src="https://loremflickr.com/800/600/sustainableagriculture,field" alt="Sustainable Agriculture Programme"></div>
         <div class="proj-meta"><span>Sustainability</span><span>Placeholder date</span></div>
         <h4>Sustainable Agriculture Programme</h4>
         <p>Description placeholder — details to be added.</p>
         <span class="readmore">Read More →</span>
       </div>
       <div class="proj-card">
-        <div class="ph ph-tide"><span class="ph-label">Photo placeholder</span></div>
+        <div class="ph ph-tide"><img class="ph-photo" src="https://loremflickr.com/800/600/farmers,meeting,group" alt="Farmer Mobilization Drive"></div>
         <div class="proj-meta"><span>Mobilization</span><span>Placeholder date</span></div>
         <h4>Farmer Mobilization Drive</h4>
         <p>Description placeholder — details to be added.</p>
         <span class="readmore">Read More →</span>
       </div>
       <div class="proj-card">
-        <div class="ph ph-forest"><span class="ph-label">Photo placeholder</span></div>
+        <div class="ph ph-forest"><img class="ph-photo" src="https://loremflickr.com/800/600/training,workshop,farmers" alt="Training Programme Series"></div>
         <div class="proj-meta"><span>Training</span><span>Placeholder date</span></div>
         <h4>Training Programme Series</h4>
         <p>Description placeholder — details to be added.</p>
@@ -668,7 +672,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
     </div>
   </div>
 </section>
-
+ 
 <!-- ============ NEWS ============ -->
 <section class="news section" id="news">
   <div class="wrap">
@@ -685,7 +689,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
     </div>
   </div>
 </section>
-
+ 
 <!-- ============ GALLERY ============ -->
 <section class="gallery section" id="gallery">
   <div class="wrap">
@@ -702,26 +706,26 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
       <button class="prod-tab" data-gal="events">Events</button>
     </div>
     <div class="gal-grid reveal" id="galGrid">
-      <div class="gal-item" data-cat="farmers" style="height:280px"><div class="ph ph-moss" style="height:100%"><span class="gal-cat">Farmers</span><span class="ph-label">Placeholder</span></div></div>
-      <div class="gal-item" data-cat="meetings" style="height:200px"><div class="ph ph-forest" style="height:100%"><span class="gal-cat">Meetings</span><span class="ph-label">Placeholder</span></div></div>
-      <div class="gal-item" data-cat="agriculture" style="height:320px"><div class="ph ph-clay" style="height:100%"><span class="gal-cat">Agriculture</span><span class="ph-label">Placeholder</span></div></div>
-      <div class="gal-item" data-cat="training" style="height:230px"><div class="ph ph-tide" style="height:100%"><span class="gal-cat">Training</span><span class="ph-label">Placeholder</span></div></div>
-      <div class="gal-item" data-cat="events" style="height:260px"><div class="ph ph-moss" style="height:100%"><span class="gal-cat">Events</span><span class="ph-label">Placeholder</span></div></div>
-      <div class="gal-item" data-cat="farmers" style="height:210px"><div class="ph ph-clay" style="height:100%"><span class="gal-cat">Farmers</span><span class="ph-label">Placeholder</span></div></div>
-      <div class="gal-item" data-cat="agriculture" style="height:290px"><div class="ph ph-forest" style="height:100%"><span class="gal-cat">Agriculture</span><span class="ph-label">Placeholder</span></div></div>
-      <div class="gal-item" data-cat="events" style="height:240px"><div class="ph ph-tide" style="height:100%"><span class="gal-cat">Events</span><span class="ph-label">Placeholder</span></div></div>
+      <div class="gal-item" data-cat="farmers" style="height:280px"><div class="ph ph-moss" style="height:100%"><img class="ph-photo" src="https://loremflickr.com/600/900/farmer,portrait" alt="Farmers"><span class="gal-cat">Farmers</span></div></div>
+      <div class="gal-item" data-cat="meetings" style="height:200px"><div class="ph ph-forest" style="height:100%"><img class="ph-photo" src="https://loremflickr.com/600/700/meeting,group,discussion" alt="Meetings"><span class="gal-cat">Meetings</span></div></div>
+      <div class="gal-item" data-cat="agriculture" style="height:320px"><div class="ph ph-clay" style="height:100%"><img class="ph-photo" src="https://loremflickr.com/600/950/agriculture,field,farm" alt="Agriculture"><span class="gal-cat">Agriculture</span></div></div>
+      <div class="gal-item" data-cat="training" style="height:230px"><div class="ph ph-tide" style="height:100%"><img class="ph-photo" src="https://loremflickr.com/600/750/training,workshop" alt="Training"><span class="gal-cat">Training</span></div></div>
+      <div class="gal-item" data-cat="events" style="height:260px"><div class="ph ph-moss" style="height:100%"><img class="ph-photo" src="https://loremflickr.com/600/850/community,event,gathering" alt="Events"><span class="gal-cat">Events</span></div></div>
+      <div class="gal-item" data-cat="farmers" style="height:210px"><div class="ph ph-clay" style="height:100%"><img class="ph-photo" src="https://loremflickr.com/600/750/farmer,harvest" alt="Farmers"><span class="gal-cat">Farmers</span></div></div>
+      <div class="gal-item" data-cat="agriculture" style="height:290px"><div class="ph ph-forest" style="height:100%"><img class="ph-photo" src="https://loremflickr.com/600/900/crop,farmland" alt="Agriculture"><span class="gal-cat">Agriculture</span></div></div>
+      <div class="gal-item" data-cat="events" style="height:240px"><div class="ph ph-tide" style="height:100%"><img class="ph-photo" src="https://loremflickr.com/600/800/festival,celebration,community" alt="Events"><span class="gal-cat">Events</span></div></div>
     </div>
   </div>
 </section>
-
+ 
 <div class="lightbox" id="lightbox">
   <div class="lightbox-inner">
     <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
-    <div class="ph ph-forest" id="lightboxImg"><span class="ph-label">Placeholder</span></div>
-    <p class="lightbox-cap" id="lightboxCap">Photo placeholder</p>
+    <div class="ph ph-forest" id="lightboxImg"><img class="ph-photo" id="lightboxImgTag" src="" alt=""></div>
+    <p class="lightbox-cap" id="lightboxCap">Gallery photo</p>
   </div>
 </div>
-
+ 
 <!-- ============ CONTACT ============ -->
 <section class="contact section" id="contact">
   <div class="wrap contact-grid">
@@ -756,7 +760,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
     </div>
   </div>
 </section>
-
+ 
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
@@ -806,27 +810,27 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
     </div>
   </div>
 </footer>
-
+ 
 <script>
 // mobile menu
 const burger = document.getElementById('burgerBtn');
 const mmenu = document.getElementById('mobileMenu');
 burger.addEventListener('click', ()=> mmenu.classList.toggle('open'));
 mmenu.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> mmenu.classList.remove('open')));
-
+ 
 // scroll reveal
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
 },{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(el=> observer.observe(el));
-
+ 
 // route line trigger
 const routeEl = document.getElementById('routeEl');
 const routeObs = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
 },{threshold:0.3});
 routeObs.observe(routeEl);
-
+ 
 // product tabs
 document.querySelectorAll('.prod-tab[data-tab]').forEach(tab=>{
   tab.addEventListener('click', ()=>{
@@ -836,7 +840,7 @@ document.querySelectorAll('.prod-tab[data-tab]').forEach(tab=>{
     document.getElementById(tab.dataset.tab).classList.add('active');
   });
 });
-
+ 
 // gallery filter
 document.querySelectorAll('.prod-tab[data-gal]').forEach(btn=>{
   btn.addEventListener('click', ()=>{
@@ -848,24 +852,27 @@ document.querySelectorAll('.prod-tab[data-gal]').forEach(btn=>{
     });
   });
 });
-
+ 
 // lightbox
 const lightbox = document.getElementById('lightbox');
 const lbImg = document.getElementById('lightboxImg');
+const lbImgTag = document.getElementById('lightboxImgTag');
 const lbCap = document.getElementById('lightboxCap');
 document.querySelectorAll('.gal-item').forEach(item=>{
   item.addEventListener('click', ()=>{
     const cat = item.dataset.cat;
     const phClass = Array.from(item.querySelector('.ph').classList).find(c=>c.startsWith('ph-') && c!=='ph');
+    const srcImg = item.querySelector('img.ph-photo');
     lbImg.className = 'ph ' + phClass;
-    lbCap.textContent = 'Photo placeholder — ' + cat.charAt(0).toUpperCase() + cat.slice(1);
+    if(srcImg){ lbImgTag.src = srcImg.src; lbImgTag.alt = srcImg.alt; }
+    lbCap.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
     lightbox.classList.add('open');
   });
 });
 document.getElementById('lightboxClose').addEventListener('click', ()=> lightbox.classList.remove('open'));
 lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) lightbox.classList.remove('open'); });
 document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') lightbox.classList.remove('open'); });
-
+ 
 // forms (placeholder submit)
 document.getElementById('memberForm').addEventListener('submit', (e)=>{
   e.preventDefault();
@@ -875,13 +882,15 @@ document.getElementById('contactForm').addEventListener('submit', (e)=>{
   e.preventDefault();
   document.getElementById('contactMsg').classList.add('show');
 });
-
+ 
 // sticky header shadow
 const headerEl = document.querySelector('header');
 window.addEventListener('scroll', ()=>{
   headerEl.style.boxShadow = window.scrollY>10 ? '0 1px 0 rgba(0,0,0,0.04)' : 'none';
 });
 </script>
-
+ 
 </body>
 </html>
+ 
+
