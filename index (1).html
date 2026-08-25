@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIZFARM — Farmer Producer Company Limited</title>
+<meta name="description" content="VIZFARM Farmer Producer Company Limited — growing together, reaching further. A modern farmer-owned business connecting Vizhinjam agriculture to bigger markets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;0,9..144,700;1,9..144,450&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ============ TOKENS ============ */
+:root{
+  --forest:#163832;
+  --forest-deep:#0E2521;
+  --moss:#4B7857;
+  --clay:#B5652D;
+  --clay-soft:#D68A52;
+  --tide:#1C6E8C;
+  --tide-light:#5FA8B8;
+  --sand:#F5F1E6;
+  --sand-deep:#EAE3D0;
+  --ink:#14201B;
+  --ink-soft:#4A5850;
+  --paper:#FCFAF4;
+  --line: rgba(20,32,27,0.12);
+
+  --display: 'Fraunces', serif;
+  --body: 'Inter', sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+
+  --maxw: 1180px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+}
+body{
+  margin:0;
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;
+}
+img,svg{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3,h4{font-family:var(--display);margin:0;font-weight:600;line-height:1.08;}
+p{margin:0;}
+ul{margin:0;padding:0;list-style:none;}
+button{font-family:inherit;cursor:pointer;}
+:focus-visible{outline:2.5px solid var(--clay); outline-offset:3px;}
+
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:12.5px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--clay);
+  display:flex; align-items:center; gap:10px;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--clay);display:inline-block;}
+.section{padding:110px 0;}
+.section-head{max-width:640px; margin-bottom:56px;}
+.section-head h2{font-size:clamp(30px,4vw,46px); color:var(--forest); margin-top:14px;}
+.section-head p{margin-top:16px; color:var(--ink-soft); font-size:17px; max-width:560px;}
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:var(--body); font-weight:600; font-size:15px;
+  padding:14px 26px; border-radius:2px; border:1.5px solid transparent;
+  transition:transform .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--clay); color:var(--paper);}
+.btn-primary:hover{background:var(--forest); transform:translateY(-2px);}
+.btn-outline{border-color:rgba(255,255,255,0.5); color:inherit;}
+.btn-outline:hover{background:rgba(255,255,255,0.12); transform:translateY(-2px);}
+.btn-outline-dark{border-color:var(--forest); color:var(--forest);}
+.btn-outline-dark:hover{background:var(--forest); color:var(--paper); transform:translateY(-2px);}
+
+.reveal{opacity:0; transform:translateY(26px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);}
+.reveal.in{opacity:1; transform:translateY(0);}
+
+/* placeholder media blocks */
+.ph{
+  position:relative; overflow:hidden;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.06), rgba(0,0,0,0.08)),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 14px);
+  display:flex; align-items:flex-end;
+}
+.ph-label{
+  font-family:var(--mono); font-size:11px; letter-spacing:0.06em;
+  color:rgba(255,255,255,0.85);
+  background:rgba(14,20,17,0.55);
+  padding:7px 12px; margin:12px;
+  border:1px solid rgba(255,255,255,0.25);
+}
+.ph-forest{background-color:var(--forest);}
+.ph-clay{background-color:var(--clay);}
+.ph-tide{background-color:var(--tide);}
+.ph-moss{background-color:var(--moss);}
+.ph-sand{background-color:var(--sand-deep);}
+.ph-sand .ph-label{color:var(--ink); background:rgba(245,241,230,0.7); border-color:var(--line);}
+.ph-photo{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;}
+
+/* ============ NAV ============ */
+header{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  background:rgba(252,250,244,0.86); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  transition:background .3s ease;
+}
+.nav{
+  max-width:var(--maxw); margin:0 auto; padding:0 28px;
+  display:flex; align-items:center; justify-content:space-between;
+  height:76px;
+}
+.logo{display:flex; align-items:center; gap:11px; font-family:var(--display); font-weight:700; font-size:21px; color:var(--forest);}
+.logo-mark{width:34px;height:34px;flex:none;}
+.logo-sub{font-family:var(--mono); font-size:9.5px; letter-spacing:0.12em; color:var(--ink-soft); display:block; margin-top:1px; font-weight:400;}
+.navlinks{display:flex; align-items:center; gap:34px;}
+.navlinks a{font-size:14.5px; font-weight:500; color:var(--ink-soft); position:relative; padding:6px 0;}
+.navlinks a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--clay);transition:width .25s ease;}
+.navlinks a:hover{color:var(--forest);}
+.navlinks a:hover::after{width:100%;}
+.nav-cta{display:flex; align-items:center; gap:22px;}
+.nav-cta .btn{padding:11px 22px; font-size:14px;}
+.burger{display:none; flex-direction:column; gap:5px; background:none; border:none; padding:8px;}
+.burger span{width:24px; height:2px; background:var(--forest);}
+.mobile-menu{
+  display:none; position:fixed; inset:76px 0 0 0; background:var(--paper); z-index:99;
+  padding:20px 28px; overflow-y:auto;
+}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block; padding:16px 0; font-size:19px; font-family:var(--display); font-weight:500; color:var(--forest); border-bottom:1px solid var(--line);}
+
+@media (max-width:920px){
+  .navlinks{display:none;}
+  .nav-cta .btn-outline-dark-desktop{display:none;}
+  .burger{display:flex;}
+}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative; overflow:hidden;
+  background:linear-gradient(180deg, var(--forest-deep) 0%, var(--forest) 62%, var(--tide) 100%);
+  padding:168px 0 0;
+  color:var(--paper);
+}
+.hero-grid{
+  max-width:var(--maxw); margin:0 auto; padding:0 28px;
+  display:grid; grid-template-columns:1.15fr 0.85fr; gap:60px; align-items:center;
+  padding-bottom:90px;
+}
+.hero-eyebrow{color:var(--clay-soft);}
+.hero-eyebrow::before{background:var(--clay-soft);}
+.hero h1{
+  font-size:clamp(40px,5.4vw,68px); color:var(--paper); margin-top:22px;
+  letter-spacing:-0.01em;
+}
+.hero h1 em{font-style:italic; color:var(--clay-soft); font-weight:450;}
+.hero p{margin-top:22px; font-size:18px; color:rgba(252,250,244,0.78); max-width:460px;}
+.hero-actions{margin-top:38px; display:flex; gap:16px; flex-wrap:wrap;}
+.hero-visual{position:relative; aspect-ratio:4/5; border:1px solid rgba(255,255,255,0.18);}
+.hero-visual .ph{height:100%;}
+
+.tideline{position:relative; height:210px; margin-top:20px;}
+.tideline svg{width:100%; height:100%; display:block;}
+.tide-station{
+  position:absolute; top:0; transform:translate(-50%,0);
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  width:130px;
+}
+.tide-dot{width:11px; height:11px; border-radius:50%; background:var(--clay-soft); border:2px solid var(--paper); margin-bottom:10px;}
+.tide-station .tstag{font-family:var(--mono); font-size:10px; letter-spacing:0.08em; color:var(--clay-soft); text-transform:uppercase;}
+.tide-station .tlabel{font-family:var(--display); font-size:15px; margin-top:4px; color:var(--paper);}
+
+@media (max-width:920px){
+  .hero-grid{grid-template-columns:1fr; padding-bottom:60px;}
+  .hero-visual{aspect-ratio:16/10;}
+}
+
+/* ============ WAVE DIVIDER ============ */
+.wave-divider{display:block; width:100%; height:64px; margin-top:-1px;}
+
+/* ============ ABOUT ============ */
+.about{background:var(--paper);}
+.about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:start;}
+.about-copy h3{font-size:20px; color:var(--forest); margin-top:34px;}
+.about-copy h3:first-child{margin-top:0;}
+.about-copy p{margin-top:12px; color:var(--ink-soft);}
+.mission-list{margin-top:14px; display:grid; gap:10px;}
+.mission-list li{display:flex; gap:12px; align-items:flex-start; color:var(--ink-soft); font-size:15.5px;}
+.mission-list li::before{content:"";width:6px;height:6px;background:var(--clay); margin-top:9px; flex:none;}
+
+.timeline{margin-top:10px;}
+.timeline-track{display:flex; overflow-x:auto; gap:0; padding-bottom:16px; scrollbar-width:thin;}
+.tstep{flex:none; width:190px; padding-right:26px; position:relative;}
+.tstep::after{content:"";position:absolute; top:9px; right:0; width:26px; height:1px; background:var(--line);}
+.tstep:last-child::after{display:none;}
+.tstep .num{font-family:var(--mono); font-size:12px; color:var(--tide); margin-bottom:14px; display:block;}
+.tstep h4{font-size:16px; color:var(--forest); font-family:var(--body); font-weight:700;}
+
+/* ============ WHAT WE DO ============ */
+.what{background:var(--sand);}
+.cards{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+.card{background:var(--sand); padding:38px 30px; transition:background .3s ease;}
+.card:hover{background:var(--paper);}
+.card .cnum{font-family:var(--mono); font-size:12px; color:var(--clay);}
+.card h4{font-size:19px; color:var(--forest); margin-top:16px;}
+.card p{margin-top:10px; color:var(--ink-soft); font-size:14.5px;}
+@media (max-width:860px){.cards{grid-template-columns:1fr 1fr;}}
+@media (max-width:560px){.cards{grid-template-columns:1fr;}}
+
+/* ============ PRODUCTS ============ */
+.products{background:var(--paper);}
+.prod-tabs{display:flex; gap:8px; margin-bottom:36px; flex-wrap:wrap;}
+.prod-tab{
+  font-family:var(--mono); font-size:12.5px; letter-spacing:0.05em; text-transform:uppercase;
+  padding:10px 18px; border:1px solid var(--line); background:none; color:var(--ink-soft);
+  transition:all .25s ease;
+}
+.prod-tab.active, .prod-tab:hover{background:var(--forest); color:var(--paper); border-color:var(--forest);}
+.prod-panels{position:relative;}
+.prod-panel{display:none;}
+.prod-panel.active{display:grid; grid-template-columns:repeat(5,1fr); gap:16px;}
+.pitem{aspect-ratio:3/4; position:relative;}
+.pitem .ph{height:100%;}
+.pitem .pname{position:absolute; bottom:12px; left:12px; right:12px; font-family:var(--body); font-weight:600; font-size:13.5px; color:var(--paper); z-index:2;}
+@media (max-width:900px){.prod-panel.active{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:560px){.prod-panel.active{grid-template-columns:repeat(2,1fr);}}
+
+/* ============ FARM TO MARKET ============ */
+.f2m{background:var(--forest); color:var(--paper); position:relative; overflow:hidden;}
+.f2m .section-head h2{color:var(--paper);}
+.f2m .section-head p{color:rgba(252,250,244,0.72);}
+.route{position:relative; margin-top:60px; padding-bottom:10px;}
+.route-line{position:relative; height:2px; background:rgba(255,255,255,0.18); margin:0 20px;}
+.route-line::before{
+  content:""; position:absolute; left:0; top:0; height:100%; width:100%;
+  background:linear-gradient(90deg, var(--clay-soft), var(--tide-light));
+  transform-origin:left; transform:scaleX(0); transition:transform 1.4s cubic-bezier(.2,.7,.2,1);
+}
+.route.in .route-line::before{transform:scaleX(1);}
+.route-stops{display:grid; grid-template-columns:repeat(7,1fr); margin-top:-11px;}
+.rstop{display:flex; flex-direction:column; align-items:center; text-align:center; padding:0 6px;}
+.rstop .rdot{width:20px; height:20px; border-radius:50%; background:var(--forest); border:2px solid var(--tide-light); margin-bottom:18px; display:flex; align-items:center; justify-content:center;}
+.rstop .rdot::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--clay-soft);}
+.rstop .rtag{font-family:var(--mono); font-size:10.5px; color:var(--tide-light); letter-spacing:0.05em; text-transform:uppercase;}
+.rstop h4{font-size:15px; margin-top:6px; font-family:var(--body); font-weight:600;}
+@media (max-width:900px){
+  .route-stops{grid-template-columns:repeat(4,1fr); row-gap:40px;}
+  .route-line{display:none;}
+}
+@media (max-width:520px){.route-stops{grid-template-columns:repeat(2,1fr);}}
+
+/* ============ VIZHINJAM ADVANTAGE ============ */
+.advantage{background:var(--tide); color:var(--paper); position:relative;}
+.adv-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+.advantage .eyebrow{color:var(--sand);}
+.advantage .eyebrow::before{background:var(--sand);}
+.advantage h2{font-size:clamp(30px,4vw,44px); margin-top:16px;}
+.advantage p{margin-top:18px; color:rgba(252,250,244,0.85); font-size:17px;}
+.adv-tag{
+  display:inline-block; margin-top:26px; font-family:var(--mono); font-size:12px;
+  letter-spacing:0.08em; text-transform:uppercase; padding:9px 16px;
+  border:1px solid rgba(252,250,244,0.4);
+}
+.adv-visual .ph{aspect-ratio:1/1;}
+@media (max-width:900px){.adv-grid{grid-template-columns:1fr;}}
+
+/* ============ MEMBERSHIP ============ */
+.membership{background:var(--sand);}
+.mem-grid{display:grid; grid-template-columns:1fr 1.15fr; gap:64px;}
+.mem-benefits{display:grid; gap:20px; margin-top:32px;}
+.mem-benefit{display:flex; gap:16px; align-items:flex-start;}
+.mem-benefit .bnum{font-family:var(--mono); color:var(--clay); font-size:13px; flex:none; width:26px; padding-top:2px;}
+.mem-benefit h4{font-size:16px; color:var(--forest);}
+.mem-benefit p{font-size:14px; color:var(--ink-soft); margin-top:4px;}
+.form-card{background:var(--paper); border:1px solid var(--line); padding:40px;}
+.form-card h3{font-size:22px; color:var(--forest);}
+.form-card .form-note{font-size:14px; color:var(--ink-soft); margin-top:8px;}
+.field-row{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:22px;}
+.field{display:flex; flex-direction:column; gap:8px;}
+.field.full{grid-column:1/-1;}
+.field label{font-family:var(--mono); font-size:11.5px; letter-spacing:0.05em; text-transform:uppercase; color:var(--ink-soft);}
+.field input, .field select, .field textarea{
+  border:1px solid var(--line); background:var(--paper); padding:12px 14px; font-family:var(--body); font-size:14.5px; color:var(--ink);
+  transition:border-color .2s ease;
+}
+.field textarea{resize:vertical; min-height:90px;}
+.field input:focus, .field select:focus, .field textarea:focus{border-color:var(--clay); outline:none;}
+.form-card .btn{margin-top:26px; width:100%; justify-content:center;}
+.form-msg{margin-top:14px; font-size:13.5px; color:var(--moss); display:none;}
+.form-msg.show{display:block;}
+@media (max-width:900px){.mem-grid{grid-template-columns:1fr;} .field-row{grid-template-columns:1fr;}}
+
+/* ============ PROJECTS ============ */
+.projects{background:var(--paper);}
+.proj-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:26px;}
+.proj-card .ph{aspect-ratio:4/3;}
+.proj-meta{display:flex; justify-content:space-between; margin-top:16px; font-family:var(--mono); font-size:11px; color:var(--tide); text-transform:uppercase; letter-spacing:0.05em;}
+.proj-card h4{font-size:17px; color:var(--forest); margin-top:10px;}
+.proj-card p{font-size:13.5px; color:var(--ink-soft); margin-top:8px;}
+.proj-card .readmore{display:inline-block; margin-top:14px; font-size:13px; font-weight:600; color:var(--clay); border-bottom:1px solid var(--clay); padding-bottom:2px;}
+@media (max-width:920px){.proj-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:560px){.proj-grid{grid-template-columns:1fr;}}
+
+/* ============ NEWS ============ */
+.news{background:var(--forest-deep); color:var(--paper);}
+.news .section-head h2{color:var(--paper);}
+.news .section-head p{color:rgba(252,250,244,0.7);}
+.news-list{display:grid; gap:0; border-top:1px solid rgba(255,255,255,0.14);}
+.news-item{
+  display:grid; grid-template-columns:110px 1fr auto; gap:26px; align-items:center;
+  padding:26px 0; border-bottom:1px solid rgba(255,255,255,0.14);
+  transition:padding-left .3s ease;
+}
+.news-item:hover{padding-left:12px;}
+.news-date{font-family:var(--mono); font-size:12.5px; color:var(--tide-light);}
+.news-item h4{font-size:18px; font-weight:500;}
+.news-item .tag{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--clay-soft); border:1px solid rgba(255,255,255,0.25); padding:6px 12px; white-space:nowrap;}
+@media (max-width:640px){.news-item{grid-template-columns:1fr; gap:10px;} .news-item .tag{justify-self:start;}}
+
+/* ============ GALLERY ============ */
+.gallery{background:var(--sand);}
+.gal-filters{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:32px;}
+.gal-grid{
+  columns:4 260px; column-gap:14px;
+}
+.gal-item{break-inside:avoid; margin-bottom:14px; position:relative; cursor:pointer; overflow:hidden;}
+.gal-item .ph{transition:transform .5s ease;}
+.gal-item:hover .ph{transform:scale(1.04);}
+.gal-cat{position:absolute; top:10px; left:10px; font-family:var(--mono); font-size:9.5px; text-transform:uppercase; letter-spacing:0.06em; background:rgba(14,20,17,0.6); color:var(--paper); padding:5px 9px;}
+.lightbox{
+  position:fixed; inset:0; background:rgba(10,15,12,0.94); z-index:200;
+  display:none; align-items:center; justify-content:center; padding:40px;
+}
+.lightbox.open{display:flex;}
+.lightbox-inner{max-width:720px; width:100%; position:relative;}
+.lightbox-inner .ph{aspect-ratio:4/3;}
+.lightbox-close{position:absolute; top:-46px; right:0; background:none; border:none; color:var(--paper); font-size:32px; line-height:1;}
+.lightbox-cap{color:var(--paper); font-family:var(--mono); font-size:12.5px; margin-top:16px; text-align:center; letter-spacing:0.04em;}
+
+/* ============ CONTACT ============ */
+.contact{background:var(--paper);}
+.contact-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px;}
+.cinfo-block{margin-top:28px;}
+.cinfo-block .clabel{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--tide);}
+.cinfo-block .cval{font-size:16px; margin-top:6px; color:var(--forest); font-weight:500;}
+.social-row{display:flex; gap:14px; margin-top:30px;}
+.social-row a{width:42px; height:42px; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; transition:all .25s ease;}
+.social-row a:hover{background:var(--forest); border-color:var(--forest); color:var(--paper);}
+.map-ph{aspect-ratio:16/9; margin-top:30px;}
+
+/* ============ FOOTER ============ */
+footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px 0 30px;}
+.foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:50px;}
+.foot-logo{display:flex; align-items:center; gap:11px; font-family:var(--display); font-size:20px; font-weight:700; color:var(--paper);}
+.foot-desc{margin-top:16px; font-size:14.5px; max-width:280px; color:rgba(252,250,244,0.6);}
+.foot-col h5{font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:0.07em; color:var(--tide-light); margin-bottom:18px;}
+.foot-col ul{display:grid; gap:11px;}
+.foot-col a{font-size:14px; color:rgba(252,250,244,0.72);}
+.foot-col a:hover{color:var(--paper);}
+.foot-bottom{margin-top:60px; padding-top:26px; border-top:1px solid rgba(255,255,255,0.12); display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; font-size:13px; color:rgba(252,250,244,0.5);}
+@media (max-width:860px){.foot-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:520px){.foot-grid{grid-template-columns:1fr;}}
+
+@media (max-width:768px){
+  .section{padding:76px 0;}
+  .about-grid, .adv-grid, .mem-grid, .contact-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER / NAV ============ -->
+<header>
+  <div class="nav">
+    <a href="#home" class="logo">
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none">
+        <path d="M20 2C20 2 8 10 8 22C8 29.7 13.4 36 20 36C26.6 36 32 29.7 32 22C32 10 20 2 20 2Z" stroke="#B5652D" stroke-width="2"/>
+        <path d="M20 36V20" stroke="#1C6E8C" stroke-width="2"/>
+        <path d="M4 34H36" stroke="#163832" stroke-width="2"/>
+      </svg>
+      <span>VIZFARM<span class="logo-sub">FARMER PRODUCER CO. LTD</span></span>
+    </a>
+    <nav class="navlinks">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#what-we-do">What We Do</a>
+      <a href="#products">Products</a>
+      <a href="#projects">Projects</a>
+      <a href="#membership">Membership</a>
+      <a href="#news">News</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#membership" class="btn btn-outline-dark btn-outline-dark-desktop">Join VIZFARM</a>
+      <button class="burger" id="burgerBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#what-we-do">What We Do</a>
+    <a href="#products">Products</a>
+    <a href="#projects">Projects</a>
+    <a href="#membership">Membership</a>
+    <a href="#news">News</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow hero-eyebrow">Vizhinjam, Kerala — Farmer Producer Company</div>
+      <h1>Growing together.<br><em>Reaching further.</em></h1>
+      <p>Empowering farmers, building sustainable businesses, and connecting Vizhinjam agriculture to bigger opportunities — from the soil to the sea.</p>
+      <div class="hero-actions">
+        <a href="#about" class="btn btn-primary">Explore VIZFARM</a>
+        <a href="#membership" class="btn btn-outline">Become a Member</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="ph ph-tide"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Coconut_tree_from_Kerala.jpg?width=800" alt="Farms and coastline near Vizhinjam, Kerala"></div>
+    </div>
+  </div>
+
+  <!-- Signature element: the tideline -->
+  <div class="wrap">
+    <div class="tideline" id="tideline">
+      <svg viewBox="0 0 1120 90" preserveAspectRatio="none">
+        <path d="M0,60 C160,10 260,80 420,45 C560,15 620,75 760,40 C880,10 960,60 1120,30" fill="none" stroke="rgba(252,250,244,0.28)" stroke-width="1.5"/>
+      </svg>
+      <div class="tide-station" style="left:2%"><div class="tide-dot"></div><span class="tstag">01 · Soil</span><span class="tlabel">Farm</span></div>
+      <div class="tide-station" style="left:26%"><div class="tide-dot"></div><span class="tstag">02 · Collect</span><span class="tlabel">Grading</span></div>
+      <div class="tide-station" style="left:50%"><div class="tide-dot"></div><span class="tstag">03 · Add value</span><span class="tlabel">Processing</span></div>
+      <div class="tide-station" style="left:74%"><div class="tide-dot"></div><span class="tstag">04 · Move</span><span class="tlabel">Logistics</span></div>
+      <div class="tide-station" style="left:97%"><div class="tide-dot"></div><span class="tstag">05 · Sea</span><span class="tlabel">Markets</span></div>
+    </div>
+  </div>
+</section>
+<svg class="wave-divider" viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,30 C300,60 900,0 1200,30 L1200,60 L0,60 Z" fill="#FCFAF4"/></svg>
+
+<!-- ============ ABOUT ============ -->
+<section class="about section" id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">About VIZFARM</div>
+      <h2>A farmer-owned company built for what comes next.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <h3>Who We Are</h3>
+        <p>VIZFARM Farmer Producer Company Limited is a farmer-focused organization established to strengthen agricultural livelihoods through collective action, business development, value addition, and improved market access.</p>
+        <h3>Our Vision</h3>
+        <p>To build a sustainable and modern agricultural ecosystem where farmers have better access to markets, technology, business opportunities, and value-added agriculture.</p>
+        <h3>Our Mission</h3>
+        <ul class="mission-list">
+          <li>Strengthen farmer livelihoods</li>
+          <li>Improve market access</li>
+          <li>Promote sustainable agriculture</li>
+          <li>Develop value-added agricultural products</li>
+          <li>Explore national and international markets</li>
+          <li>Connect agriculture with modern logistics and infrastructure</li>
+          <li>Encourage innovation and technology in farming</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="ph ph-forest" style="aspect-ratio:4/5; margin-bottom:28px;"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/India_Farming.jpg?width=800" alt="Farmer members and board of VIZFARM"></div>
+        <div class="timeline">
+          <div class="eyebrow" style="margin-bottom:18px;">Our Path</div>
+          <div class="timeline-track">
+            <div class="tstep"><span class="num">01</span><h4>Formation</h4></div>
+            <div class="tstep"><span class="num">02</span><h4>Farmer Mobilization</h4></div>
+            <div class="tstep"><span class="num">03</span><h4>Business Development</h4></div>
+            <div class="tstep"><span class="num">04</span><h4>Value Addition</h4></div>
+            <div class="tstep"><span class="num">05</span><h4>Market Expansion</h4></div>
+            <div class="tstep"><span class="num">06</span><h4>Export Opportunities</h4></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT WE DO ============ -->
+<section class="what section" id="what-we-do">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">What We Do</div>
+      <h2>Six ways VIZFARM works for farmers.</h2>
+      <p>From collective organization to export potential — a modern approach to an old occupation.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="cards reveal">
+      <div class="card"><span class="cnum">01</span><h4>Farmer Development</h4><p>Supporting farmers through collective organization, training, technology, and agricultural extension.</p></div>
+      <div class="card"><span class="cnum">02</span><h4>Market Linkage</h4><p>Connecting farmers and agricultural products to better local, national, and future international markets.</p></div>
+      <div class="card"><span class="cnum">03</span><h4>Value Addition</h4><p>Exploring processing, packaging, branding, and value-added agricultural products.</p></div>
+      <div class="card"><span class="cnum">04</span><h4>Agriculture &amp; Logistics</h4><p>Exploring opportunities created by improved logistics infrastructure and the Vizhinjam region's growing connectivity.</p></div>
+      <div class="card"><span class="cnum">05</span><h4>Export Opportunities</h4><p>Assessing the potential for agricultural exports, especially fruits, vegetables, spices, and value-added products.</p></div>
+      <div class="card"><span class="cnum">06</span><h4>Innovation</h4><p>Encouraging technology, modern agricultural practices, digital tools, and new business models.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section class="products section" id="products">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Our Products</div>
+      <h2>What VIZFARM grows and makes.</h2>
+      <p>Categories can be added, removed, or updated as VIZFARM's product range develops.</p>
+    </div>
+    <div class="prod-tabs reveal">
+      <button class="prod-tab active" data-tab="fresh">Fresh Produce</button>
+      <button class="prod-tab" data-tab="spices">Spices</button>
+      <button class="prod-tab" data-tab="value">Value-Added</button>
+    </div>
+    <div class="prod-panels reveal">
+      <div class="prod-panel active" id="fresh">
+        <div class="pitem"><div class="ph ph-moss"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vegetable_market,_Ahmedabad.jpg?width=600" alt="Vegetables"><span class="pname">Vegetables</span></div></div>
+        <div class="pitem"><div class="ph ph-clay"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Coconut_tree_from_Kerala.jpg?width=600" alt="Fruits"><span class="pname">Fruits</span></div></div>
+        <div class="pitem"><div class="ph ph-forest"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Banana_plantation.jpg?width=600" alt="Banana"><span class="pname">Banana</span></div></div>
+        <div class="pitem"><div class="ph ph-tide"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Banana_plantation.jpg?width=600" alt="Mango"><span class="pname">Mango</span></div></div>
+        <div class="pitem"><div class="ph ph-moss"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Black_Pepper_on_Jackfruit_Tree_-_Kerala_-_IMG_3623.jpg?width=600" alt="Jackfruit"><span class="pname">Jackfruit</span></div></div>
+      </div>
+      <div class="prod-panel" id="spices">
+        <div class="pitem"><div class="ph ph-clay"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Black_Pepper_on_Jackfruit_Tree_-_Kerala_-_IMG_3623.jpg?width=600" alt="Pepper"><span class="pname">Pepper</span></div></div>
+        <div class="pitem"><div class="ph ph-forest"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Spice_market-India.jpg?width=600" alt="Cardamom"><span class="pname">Cardamom</span></div></div>
+        <div class="pitem"><div class="ph ph-moss"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Spice_market-India.jpg?width=600" alt="Ginger"><span class="pname">Ginger</span></div></div>
+        <div class="pitem"><div class="ph ph-tide"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Spice_market-India.jpg?width=600" alt="Nutmeg"><span class="pname">Nutmeg</span></div></div>
+      </div>
+      <div class="prod-panel" id="value">
+        <div class="pitem"><div class="ph ph-tide"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vegetable_market,_Ahmedabad.jpg?width=600" alt="Processed Foods"><span class="pname">Processed Foods</span></div></div>
+        <div class="pitem"><div class="ph ph-clay"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vegetable_market,_Ahmedabad.jpg?width=600" alt="Packaged Products"><span class="pname">Packaged Products</span></div></div>
+        <div class="pitem"><div class="ph ph-forest"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Spice_market-India.jpg?width=600" alt="VIZFARM Branded Range"><span class="pname">VIZFARM Branded Range — Coming Soon</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FARM TO MARKET ============ -->
+<section class="f2m section" id="farm-to-market">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">The Route</div>
+      <h2>Farm to market, station by station.</h2>
+      <p>VIZFARM's ambition: a stronger, more connected agricultural supply chain for Vizhinjam's farmers.</p>
+    </div>
+    <div class="route reveal" id="routeEl">
+      <div class="route-line"></div>
+      <div class="route-stops">
+        <div class="rstop"><div class="rdot"></div><span class="rtag">01</span><h4>Farmer</h4></div>
+        <div class="rstop"><div class="rdot"></div><span class="rtag">02</span><h4>Collection</h4></div>
+        <div class="rstop"><div class="rdot"></div><span class="rtag">03</span><h4>Grading &amp; QC</h4></div>
+        <div class="rstop"><div class="rdot"></div><span class="rtag">04</span><h4>Processing</h4></div>
+        <div class="rstop"><div class="rdot"></div><span class="rtag">05</span><h4>Packaging</h4></div>
+        <div class="rstop"><div class="rdot"></div><span class="rtag">06</span><h4>Logistics</h4></div>
+        <div class="rstop"><div class="rdot"></div><span class="rtag">07</span><h4>Markets</h4></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIZHINJAM ADVANTAGE ============ -->
+<section class="advantage section" id="vizhinjam-advantage">
+  <div class="wrap adv-grid">
+    <div class="reveal">
+      <div class="eyebrow">Vizhinjam Advantage</div>
+      <h2>From local farms to global markets.</h2>
+      <p>Vizhinjam's developing infrastructure and connectivity create future possibilities for improving agricultural logistics and exploring new markets — for VIZFARM's members and beyond.</p>
+      <span class="adv-tag">Future potential &amp; opportunity — not a current export claim</span>
+    </div>
+    <div class="adv-visual reveal">
+      <div class="ph ph-sand"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/First_Mother_Ship_MV_San_Fernando_at_Vizhinjam_International_Seaport.jpg?width=800" alt="Port and agricultural connectivity near Vizhinjam"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MEMBERSHIP ============ -->
+<section class="membership section" id="membership">
+  <div class="wrap mem-grid">
+    <div class="reveal">
+      <div class="eyebrow">Membership</div>
+      <h2 style="font-size:clamp(28px,3.6vw,40px); color:var(--forest); margin-top:14px;">Grow with VIZFARM.</h2>
+      <p style="margin-top:16px; color:var(--ink-soft); font-size:16px;">Join a farmer-owned business built for collective strength and bigger markets.</p>
+      <div class="mem-benefits">
+        <div class="mem-benefit"><span class="bnum">01</span><div><h4>Collective Market Access</h4><p>Sell together, negotiate better.</p></div></div>
+        <div class="mem-benefit"><span class="bnum">02</span><div><h4>Business Opportunities</h4><p>Share in a farmer-owned enterprise.</p></div></div>
+        <div class="mem-benefit"><span class="bnum">03</span><div><h4>Training &amp; Capacity Building</h4><p>Modern practices, hands-on support.</p></div></div>
+        <div class="mem-benefit"><span class="bnum">04</span><div><h4>Agricultural Support</h4><p>Extension services and guidance.</p></div></div>
+        <div class="mem-benefit"><span class="bnum">05</span><div><h4>Access to New Markets</h4><p>Local, national — and future international.</p></div></div>
+        <div class="mem-benefit"><span class="bnum">06</span><div><h4>Value-Addition Opportunities</h4><p>Move beyond raw produce.</p></div></div>
+      </div>
+    </div>
+    <div class="form-card reveal">
+      <h3>Apply for Membership</h3>
+      <p class="form-note">Tell us about your farm — a VIZFARM coordinator will follow up.</p>
+      <form id="memberForm">
+        <div class="field-row">
+          <div class="field full"><label for="mName">Full Name</label><input id="mName" type="text" required></div>
+          <div class="field"><label for="mPhone">Mobile Number</label><input id="mPhone" type="tel" required></div>
+          <div class="field"><label for="mVillage">Village / Location</label><input id="mVillage" type="text" required></div>
+          <div class="field"><label for="mType">Type of Farming</label>
+            <select id="mType"><option>Vegetable</option><option>Fruit</option><option>Spice</option><option>Mixed / Other</option></select>
+          </div>
+          <div class="field"><label for="mCrops">Main Crops</label><input id="mCrops" type="text"></div>
+          <div class="field full"><label for="mLand">Land Area</label><input id="mLand" type="text" placeholder="e.g. in acres / cents"></div>
+          <div class="field full"><label for="mMsg">Message</label><textarea id="mMsg"></textarea></div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Membership Enquiry</button>
+        <p class="form-msg" id="memberMsg">Thank you — your enquiry has been noted. This is a design placeholder form; connect it to a backend to receive real submissions.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="projects section" id="projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Projects &amp; Initiatives</div>
+      <h2>Work in progress across Vizhinjam.</h2>
+    </div>
+    <div class="proj-grid reveal">
+      <div class="proj-card">
+        <div class="ph ph-moss"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/India_Farming.jpg?width=800" alt="Kitchen Garden Initiative"></div>
+        <div class="proj-meta"><span>Kitchen Gardens</span><span>Placeholder date</span></div>
+        <h4>Kitchen Garden Initiative</h4>
+        <p>Description placeholder — details to be added.</p>
+        <span class="readmore">Read More →</span>
+      </div>
+      <div class="proj-card">
+        <div class="ph ph-clay"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Coconut_tree_from_Kerala.jpg?width=800" alt="Sustainable Agriculture Programme"></div>
+        <div class="proj-meta"><span>Sustainability</span><span>Placeholder date</span></div>
+        <h4>Sustainable Agriculture Programme</h4>
+        <p>Description placeholder — details to be added.</p>
+        <span class="readmore">Read More →</span>
+      </div>
+      <div class="proj-card">
+        <div class="ph ph-tide"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Agriculture_in_India,_Farmer_Punjab.jpg?width=800" alt="Farmer Mobilization Drive"></div>
+        <div class="proj-meta"><span>Mobilization</span><span>Placeholder date</span></div>
+        <h4>Farmer Mobilization Drive</h4>
+        <p>Description placeholder — details to be added.</p>
+        <span class="readmore">Read More →</span>
+      </div>
+      <div class="proj-card">
+        <div class="ph ph-forest"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/India_Farming.jpg?width=800" alt="Training Programme Series"></div>
+        <div class="proj-meta"><span>Training</span><span>Placeholder date</span></div>
+        <h4>Training Programme Series</h4>
+        <p>Description placeholder — details to be added.</p>
+        <span class="readmore">Read More →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWS ============ -->
+<section class="news section" id="news">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">News &amp; Updates</div>
+      <h2>What's happening at VIZFARM.</h2>
+    </div>
+    <div class="news-list reveal">
+      <div class="news-item"><span class="news-date">Date placeholder</span><h4>Farmer meeting — placeholder headline</h4><span class="tag">Meeting</span></div>
+      <div class="news-item"><span class="news-date">Date placeholder</span><h4>Training programme — placeholder headline</h4><span class="tag">Training</span></div>
+      <div class="news-item"><span class="news-date">Date placeholder</span><h4>New partnership — placeholder headline</h4><span class="tag">Partnership</span></div>
+      <div class="news-item"><span class="news-date">Date placeholder</span><h4>Product launch — placeholder headline</h4><span class="tag">Product</span></div>
+      <div class="news-item"><span class="news-date">Date placeholder</span><h4>Business development — placeholder headline</h4><span class="tag">Business</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery section" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Gallery</div>
+      <h2>VIZFARM in pictures.</h2>
+    </div>
+    <div class="gal-filters reveal">
+      <button class="prod-tab active" data-gal="all">All</button>
+      <button class="prod-tab" data-gal="farmers">Farmers</button>
+      <button class="prod-tab" data-gal="meetings">Meetings</button>
+      <button class="prod-tab" data-gal="training">Training</button>
+      <button class="prod-tab" data-gal="agriculture">Agriculture</button>
+      <button class="prod-tab" data-gal="events">Events</button>
+    </div>
+    <div class="gal-grid reveal" id="galGrid">
+      <div class="gal-item" data-cat="farmers" style="height:280px"><div class="ph ph-moss" style="height:100%"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Agriculture_in_India,_Farmer_Punjab.jpg?width=600" alt="Farmers"><span class="gal-cat">Farmers</span></div></div>
+      <div class="gal-item" data-cat="meetings" style="height:200px"><div class="ph ph-forest" style="height:100%"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/India_Farming.jpg?width=600" alt="Meetings"><span class="gal-cat">Meetings</span></div></div>
+      <div class="gal-item" data-cat="agriculture" style="height:320px"><div class="ph ph-clay" style="height:100%"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Coconut_tree_from_Kerala.jpg?width=600" alt="Agriculture"><span class="gal-cat">Agriculture</span></div></div>
+      <div class="gal-item" data-cat="training" style="height:230px"><div class="ph ph-tide" style="height:100%"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/India_Farming.jpg?width=600" alt="Training"><span class="gal-cat">Training</span></div></div>
+      <div class="gal-item" data-cat="events" style="height:260px"><div class="ph ph-moss" style="height:100%"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Spice_market-India.jpg?width=600" alt="Events"><span class="gal-cat">Events</span></div></div>
+      <div class="gal-item" data-cat="farmers" style="height:210px"><div class="ph ph-clay" style="height:100%"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Agriculture_in_India,_Farmer_Punjab.jpg?width=600" alt="Farmers"><span class="gal-cat">Farmers</span></div></div>
+      <div class="gal-item" data-cat="agriculture" style="height:290px"><div class="ph ph-forest" style="height:100%"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vegetable_market,_Ahmedabad.jpg?width=600" alt="Agriculture"><span class="gal-cat">Agriculture</span></div></div>
+      <div class="gal-item" data-cat="events" style="height:240px"><div class="ph ph-tide" style="height:100%"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vizhinjam_%28cropped%29.jpg?width=600" alt="Events"><span class="gal-cat">Events</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <div class="ph ph-forest" id="lightboxImg"><img class="ph-photo" id="lightboxImgTag" src="" alt=""></div>
+    <p class="lightbox-cap" id="lightboxCap">Gallery photo</p>
+  </div>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact section" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <div class="eyebrow">Contact</div>
+      <h2 style="font-size:clamp(28px,3.6vw,40px); color:var(--forest); margin-top:14px;">Get in touch.</h2>
+      <div class="cinfo-block"><span class="clabel">Organization</span><div class="cval">VIZFARM Farmer Producer Company Limited</div></div>
+      <div class="cinfo-block"><span class="clabel">Location</span><div class="cval">Vizhinjam, Thiruvananthapuram, Kerala, India</div></div>
+      <div class="cinfo-block"><span class="clabel">Phone</span><div class="cval">[Phone number placeholder]</div></div>
+      <div class="cinfo-block"><span class="clabel">Email</span><div class="cval">[Email address placeholder]</div></div>
+      <div class="cinfo-block"><span class="clabel">WhatsApp</span><div class="cval">[WhatsApp number placeholder]</div></div>
+      <div class="social-row">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">ig</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+      </div>
+      <div class="map-ph ph ph-sand"><span class="ph-label">Google Maps placeholder</span></div>
+    </div>
+    <div class="form-card reveal">
+      <h3>Send a Message</h3>
+      <p class="form-note">General enquiries, partnerships, and media.</p>
+      <form id="contactForm">
+        <div class="field-row">
+          <div class="field full"><label for="cName">Name</label><input id="cName" type="text" required></div>
+          <div class="field"><label for="cEmail">Email</label><input id="cEmail" type="email" required></div>
+          <div class="field"><label for="cPhone">Phone</label><input id="cPhone" type="tel"></div>
+          <div class="field full"><label for="cMsg">Message</label><textarea id="cMsg" required></textarea></div>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <p class="form-msg" id="contactMsg">Thank you — your message has been noted. This is a design placeholder form; connect it to a backend to receive real submissions.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">
+          <svg class="logo-mark" viewBox="0 0 40 40" fill="none" width="30" height="30">
+            <path d="M20 2C20 2 8 10 8 22C8 29.7 13.4 36 20 36C26.6 36 32 29.7 32 22C32 10 20 2 20 2Z" stroke="#B5652D" stroke-width="2"/>
+            <path d="M20 36V20" stroke="#5FA8B8" stroke-width="2"/>
+            <path d="M4 34H36" stroke="#F5F1E6" stroke-width="2"/>
+          </svg>
+          VIZFARM
+        </div>
+        <p class="foot-desc">Building stronger farmers, sustainable businesses, and better market connections.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#what-we-do">What We Do</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#membership">Membership</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>More</h5>
+        <ul>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 VIZFARM Farmer Producer Company Limited. All Rights Reserved.</span>
+      <span>Vizhinjam, Thiruvananthapuram, Kerala, India</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// mobile menu
+const burger = document.getElementById('burgerBtn');
+const mmenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', ()=> mmenu.classList.toggle('open'));
+mmenu.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> mmenu.classList.remove('open')));
+
+// scroll reveal
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=> observer.observe(el));
+
+// route line trigger
+const routeEl = document.getElementById('routeEl');
+const routeObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+},{threshold:0.3});
+routeObs.observe(routeEl);
+
+// product tabs
+document.querySelectorAll('.prod-tab[data-tab]').forEach(tab=>{
+  tab.addEventListener('click', ()=>{
+    document.querySelectorAll('.prod-tab[data-tab]').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.prod-panel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.tab).classList.add('active');
+  });
+});
+
+// gallery filter
+document.querySelectorAll('.prod-tab[data-gal]').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.prod-tab[data-gal]').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.gal;
+    document.querySelectorAll('.gal-item').forEach(item=>{
+      item.style.display = (cat==='all' || item.dataset.cat===cat) ? '' : 'none';
+    });
+  });
+});
+
+// lightbox
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lightboxImg');
+const lbImgTag = document.getElementById('lightboxImgTag');
+const lbCap = document.getElementById('lightboxCap');
+document.querySelectorAll('.gal-item').forEach(item=>{
+  item.addEventListener('click', ()=>{
+    const cat = item.dataset.cat;
+    const phClass = Array.from(item.querySelector('.ph').classList).find(c=>c.startsWith('ph-') && c!=='ph');
+    const srcImg = item.querySelector('img.ph-photo');
+    lbImg.className = 'ph ' + phClass;
+    if(srcImg){ lbImgTag.src = srcImg.src; lbImgTag.alt = srcImg.alt; }
+    lbCap.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+    lightbox.classList.add('open');
+  });
+});
+document.getElementById('lightboxClose').addEventListener('click', ()=> lightbox.classList.remove('open'));
+lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) lightbox.classList.remove('open'); });
+document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') lightbox.classList.remove('open'); });
+
+// forms (placeholder submit)
+document.getElementById('memberForm').addEventListener('submit', (e)=>{
+  e.preventDefault();
+  document.getElementById('memberMsg').classList.add('show');
+});
+document.getElementById('contactForm').addEventListener('submit', (e)=>{
+  e.preventDefault();
+  document.getElementById('contactMsg').classList.add('show');
+});
+
+// sticky header shadow
+const headerEl = document.querySelector('header');
+window.addEventListener('scroll', ()=>{
+  headerEl.style.boxShadow = window.scrollY>10 ? '0 1px 0 rgba(0,0,0,0.04)' : 'none';
+});
+</script>
+
+</body>
+</html>
