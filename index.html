@@ -108,6 +108,76 @@ button{font-family:inherit;cursor:pointer;}
 .ph-sand{background-color:var(--sand-deep);}
 .ph-sand .ph-label{color:var(--ink); background:rgba(245,241,230,0.7); border-color:var(--line);}
 
+/* soft "coming soon" pill — replaces jarring PLACEHOLDER labels */
+.soon-pill{
+  display:inline-flex; align-items:center; gap:7px;
+  font-family:var(--mono); font-size:10px; letter-spacing:0.07em; text-transform:uppercase;
+  color:rgba(252,250,244,0.92); background:rgba(14,20,17,0.5);
+  padding:7px 12px; border:1px solid rgba(252,250,244,0.28);
+}
+.soon-pill svg{width:13px;height:13px;}
+.ph-sand .soon-pill{color:var(--ink-soft); background:rgba(245,241,230,0.75); border-color:var(--line);}
+.ph-center-icon{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:rgba(252,250,244,0.35);}
+.ph-center-icon svg{width:30%; height:30%;}
+
+/* hover zoom for real photography */
+.zoom-frame{overflow:hidden;}
+.zoom-frame img{transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+.zoom-frame:hover img{transform:scale(1.05);}
+
+/* flowing tideline animation — subtle movement metaphor */
+.flow-line{stroke-dasharray:6 10; animation:flowmove 14s linear infinite;}
+@keyframes flowmove{to{stroke-dashoffset:-320;}}
+
+/* ============ WHY VIZFARM ============ */
+.why{background:var(--forest); color:var(--paper); position:relative; overflow:hidden;}
+.why-head{max-width:720px;}
+.why .eyebrow{color:var(--clay-soft);}
+.why .eyebrow::before{background:var(--clay-soft);}
+.why-statement{font-size:clamp(26px,3.6vw,42px); margin-top:16px; color:var(--paper); letter-spacing:-0.01em;}
+.why-statement .dim{color:rgba(252,250,244,0.5);}
+.why-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(252,250,244,0.14); margin-top:56px; border:1px solid rgba(252,250,244,0.14);}
+.why-card{background:var(--forest); padding:40px 32px; transition:background .3s ease;}
+.why-card:hover{background:var(--forest-deep);}
+.why-card .wnum{font-family:var(--mono); font-size:12px; color:var(--tide-light);}
+.why-card h4{font-size:20px; color:var(--paper); margin-top:18px;}
+.why-card p{margin-top:12px; color:rgba(252,250,244,0.68); font-size:14.5px;}
+@media (max-width:860px){.why-grid{grid-template-columns:1fr;}}
+
+/* ============ OUR JOURNEY ============ */
+.journey{background:var(--sand);}
+.journey-track{position:relative; margin-top:20px;}
+.journey-line{position:absolute; left:0; right:0; top:17px; height:1px; background:var(--line);}
+.journey-steps{display:grid; grid-template-columns:repeat(6,1fr); gap:20px; position:relative;}
+.jstep{display:flex; flex-direction:column;}
+.jstep .jdot{width:11px; height:11px; border-radius:50%; background:var(--clay); border:2px solid var(--sand); margin-bottom:16px; z-index:1;}
+.jstep .jnum{font-family:var(--mono); font-size:11px; color:var(--tide); margin-bottom:8px;}
+.jstep h4{font-size:15.5px; color:var(--forest); font-family:var(--body); font-weight:700; line-height:1.3;}
+@media (max-width:920px){
+  .journey-steps{grid-template-columns:repeat(3,1fr); row-gap:36px;}
+  .journey-line{display:none;}
+}
+@media (max-width:560px){.journey-steps{grid-template-columns:1fr 1fr;}}
+
+/* Vizhinjam Advantage — local-to-global flow chips */
+.adv-flow{display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin-top:30px;}
+.adv-flow .chip{font-family:var(--mono); font-size:11.5px; letter-spacing:0.05em; text-transform:uppercase; padding:9px 14px; border:1px solid rgba(252,250,244,0.35); color:var(--paper);}
+.adv-flow .chip.dim{opacity:0.55;}
+.adv-flow .arrow{color:rgba(252,250,244,0.5); font-size:14px;}
+
+/* ============ FINAL CTA ============ */
+.final-cta{background:var(--forest-deep); color:var(--paper); text-align:center; padding:130px 0;}
+.final-cta h2{font-size:clamp(34px,5vw,58px); color:var(--paper); max-width:820px; margin:0 auto;}
+.final-cta p{margin-top:22px; color:rgba(252,250,244,0.72); font-size:17px; max-width:560px; margin-left:auto; margin-right:auto;}
+.final-cta .hero-actions{justify-content:center; margin-top:40px;}
+@media (max-width:600px){.final-cta{padding:90px 0;}}
+
+/* mobile tap targets */
+@media (max-width:600px){
+  .btn{min-height:46px;}
+  .hero{padding-top:132px;}
+}
+
 /* ============ NAV ============ */
 header{
   position:fixed; top:0; left:0; right:0; z-index:100;
@@ -252,7 +322,6 @@ header{
 .route-stops{display:grid; grid-template-columns:repeat(7,1fr); margin-top:-11px;}
 .rstop{display:flex; flex-direction:column; align-items:center; text-align:center; padding:0 6px;}
 .rstop .rdot{width:20px; height:20px; border-radius:50%; background:var(--forest); border:2px solid var(--tide-light); margin-bottom:18px; display:flex; align-items:center; justify-content:center;}
-.rstop .rdot::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--clay-soft);}
 .rstop .rtag{font-family:var(--mono); font-size:10.5px; color:var(--tide-light); letter-spacing:0.05em; text-transform:uppercase;}
 .rstop h4{font-size:15px; margin-top:6px; font-family:var(--body); font-weight:600;}
 @media (max-width:900px){
@@ -400,6 +469,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
   <symbol id="icon-cycle" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M46 20C42 14 35 10 28 11C18 12 11 21 12 31"/><path d="M18 44C22 50 29 54 36 53C46 52 53 43 52 33"/><path d="M46 20L48 10L38 13"/><path d="M18 44L16 54L26 51"/></g></symbol>
   <symbol id="icon-people" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="22" r="6"/><circle cx="42" cy="22" r="6"/><path d="M10 48C10 38 16 32 22 32C28 32 32 36 32 40"/><path d="M32 40C32 36 36 32 42 32C48 32 54 38 54 48"/></g></symbol>
   <symbol id="icon-book" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 18C28 14 18 13 12 15V45C18 43 28 44 32 48"/><path d="M32 18C36 14 46 13 52 15V45C46 43 36 44 32 48"/><path d="M32 18V48"/></g></symbol>
+  <symbol id="icon-camera" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="20" width="48" height="32" rx="4"/><path d="M22 20L26 12H38L42 20"/><circle cx="32" cy="36" r="10"/></g></symbol>
 </defs>
 </svg>
 
@@ -458,7 +528,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
         <a href="#membership" class="btn btn-outline">Become a Member</a>
       </div>
     </div>
-    <div class="hero-visual">
+    <div class="hero-visual zoom-frame">
       <img src="assets/hero-farm.jpg" alt="VIZFARM farmers at work in the fields, Vizhinjam" style="width:100%;height:100%;object-fit:cover;">
     </div>
   </div>
@@ -467,7 +537,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
   <div class="wrap">
     <div class="tideline" id="tideline">
       <svg viewBox="0 0 1120 90" preserveAspectRatio="none">
-        <path d="M0,60 C160,10 260,80 420,45 C560,15 620,75 760,40 C880,10 960,60 1120,30" fill="none" stroke="rgba(252,250,244,0.28)" stroke-width="1.5"/>
+        <path d="M0,60 C160,10 260,80 420,45 C560,15 620,75 760,40 C880,10 960,60 1120,30" fill="none" stroke="rgba(252,250,244,0.28)" stroke-width="1.5" class="flow-line"/>
       </svg>
       <div class="tide-station" style="left:2%"><div class="tide-dot"></div><span class="tstag">01 · Soil</span><span class="tlabel">Farm</span></div>
       <div class="tide-station" style="left:26%"><div class="tide-dot"></div><span class="tstag">02 · Collect</span><span class="tlabel">Grading</span></div>
@@ -504,18 +574,58 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
         </ul>
       </div>
       <div class="reveal">
-        <div class="ph ph-forest" style="aspect-ratio:4/5; margin-bottom:28px;"><span class="ph-label">Photo placeholder — Board / farmer members</span></div>
-        <div class="timeline">
-          <div class="eyebrow" style="margin-bottom:18px;">Our Path</div>
-          <div class="timeline-track">
-            <div class="tstep"><span class="num">01</span><h4>Formation</h4></div>
-            <div class="tstep"><span class="num">02</span><h4>Farmer Mobilization</h4></div>
-            <div class="tstep"><span class="num">03</span><h4>Business Development</h4></div>
-            <div class="tstep"><span class="num">04</span><h4>Value Addition</h4></div>
-            <div class="tstep"><span class="num">05</span><h4>Market Expansion</h4></div>
-            <div class="tstep"><span class="num">06</span><h4>Export Opportunities</h4></div>
-          </div>
+        <div class="ph ph-forest" style="aspect-ratio:4/5;">
+          <div class="ph-center-icon"><svg><use href="#icon-people"/></svg></div>
+          <span class="soon-pill" style="position:relative;z-index:2;"><svg><use href="#icon-camera"/></svg>Board &amp; member photos coming soon</span>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY VIZFARM ============ -->
+<section class="why section" id="why-vizfarm">
+  <div class="wrap">
+    <div class="why-head reveal">
+      <div class="eyebrow">Why VIZFARM?</div>
+      <h2 class="why-statement">Agriculture is changing.<br><span class="dim">Farmers shouldn't be left behind.</span></h2>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-card">
+        <span class="wnum">01</span>
+        <h4>Collective Strength</h4>
+        <p>Farmers coming together to build stronger businesses and create better opportunities.</p>
+      </div>
+      <div class="why-card">
+        <span class="wnum">02</span>
+        <h4>Better Opportunities</h4>
+        <p>Exploring market access, value addition, agricultural business, and new income opportunities.</p>
+      </div>
+      <div class="why-card">
+        <span class="wnum">03</span>
+        <h4>Ready for What's Next</h4>
+        <p>Preparing farmers for a changing agricultural landscape through innovation, infrastructure, and future market opportunities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUR JOURNEY ============ -->
+<section class="journey section" id="our-journey">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Our Journey</div>
+      <h2>Built step by step, not overnight.</h2>
+    </div>
+    <div class="journey-track reveal">
+      <div class="journey-line"></div>
+      <div class="journey-steps">
+        <div class="jstep"><div class="jdot"></div><span class="jnum">01</span><h4>Formation</h4></div>
+        <div class="jstep"><div class="jdot"></div><span class="jnum">02</span><h4>Farmer Mobilisation</h4></div>
+        <div class="jstep"><div class="jdot"></div><span class="jnum">03</span><h4>Building the Organisation</h4></div>
+        <div class="jstep"><div class="jdot"></div><span class="jnum">04</span><h4>Developing Agricultural Opportunities</h4></div>
+        <div class="jstep"><div class="jdot"></div><span class="jnum">05</span><h4>Exploring Value Addition</h4></div>
+        <div class="jstep"><div class="jdot"></div><span class="jnum">06</span><h4>Growing Towards Bigger Markets</h4></div>
       </div>
     </div>
   </div>
@@ -589,13 +699,13 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
     <div class="route reveal" id="routeEl">
       <div class="route-line"></div>
       <div class="route-stops">
-        <div class="rstop"><div class="rdot"></div><span class="rtag">01</span><h4>Farmer</h4></div>
-        <div class="rstop"><div class="rdot"></div><span class="rtag">02</span><h4>Collection</h4></div>
-        <div class="rstop"><div class="rdot"></div><span class="rtag">03</span><h4>Grading &amp; QC</h4></div>
-        <div class="rstop"><div class="rdot"></div><span class="rtag">04</span><h4>Processing</h4></div>
-        <div class="rstop"><div class="rdot"></div><span class="rtag">05</span><h4>Packaging</h4></div>
-        <div class="rstop"><div class="rdot"></div><span class="rtag">06</span><h4>Logistics</h4></div>
-        <div class="rstop"><div class="rdot"></div><span class="rtag">07</span><h4>Markets</h4></div>
+        <div class="rstop"><div class="rdot"><svg style="width:10px;height:10px;color:var(--tide-light);"><use href="#icon-people"/></svg></div><span class="rtag">01</span><h4>Farmer</h4></div>
+        <div class="rstop"><div class="rdot"><svg style="width:10px;height:10px;color:var(--tide-light);"><use href="#icon-veg"/></svg></div><span class="rtag">02</span><h4>Collection</h4></div>
+        <div class="rstop"><div class="rdot"><svg style="width:10px;height:10px;color:var(--tide-light);"><use href="#icon-star"/></svg></div><span class="rtag">03</span><h4>Grading &amp; QC</h4></div>
+        <div class="rstop"><div class="rdot"><svg style="width:10px;height:10px;color:var(--tide-light);"><use href="#icon-processed"/></svg></div><span class="rtag">04</span><h4>Processing</h4></div>
+        <div class="rstop"><div class="rdot"><svg style="width:10px;height:10px;color:var(--tide-light);"><use href="#icon-packaged"/></svg></div><span class="rtag">05</span><h4>Packaging</h4></div>
+        <div class="rstop"><div class="rdot"><svg style="width:10px;height:10px;color:var(--tide-light);"><use href="#icon-cycle"/></svg></div><span class="rtag">06</span><h4>Logistics</h4></div>
+        <div class="rstop"><div class="rdot"><svg style="width:10px;height:10px;color:var(--tide-light);"><use href="#icon-fruit"/></svg></div><span class="rtag">07</span><h4>Markets</h4></div>
       </div>
     </div>
   </div>
@@ -608,6 +718,12 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
       <div class="eyebrow">Vizhinjam Advantage</div>
       <h2>From local farms to global markets.</h2>
       <p>Vizhinjam's developing infrastructure and connectivity create future possibilities for improving agricultural logistics and exploring new markets — for VIZFARM's members and beyond.</p>
+      <div class="adv-flow">
+        <span class="chip">Local Farms</span><span class="arrow">→</span>
+        <span class="chip">Kerala</span><span class="arrow">→</span>
+        <span class="chip">India</span><span class="arrow">→</span>
+        <span class="chip dim">Future Global Opportunities</span>
+      </div>
       <span class="adv-tag">Future potential &amp; opportunity — not a current export claim</span>
     </div>
     <div class="adv-visual reveal">
@@ -628,7 +744,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
           <circle cx="140" cy="185" r="5" fill="#B5652D"/>
           <circle cx="80" cy="180" r="5" fill="#B5652D"/>
           <!-- connecting route: dashed path from farm to port -->
-          <path d="M140 300C220 280 260 320 300 300C340 280 360 300 400 290" fill="none" stroke="#B5652D" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round"/>
+          <path d="M140 300C220 280 260 320 300 300C340 280 360 300 400 290" fill="none" stroke="#B5652D" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round" class="flow-line"/>
           <!-- sea side: port crane + containers -->
           <g stroke="#1C6E8C" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path d="M400 330V210"/>
@@ -684,7 +800,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
           <div class="field full"><label for="mMsg">Message</label><textarea id="mMsg"></textarea></div>
         </div>
         <button type="submit" class="btn btn-primary">Submit Membership Enquiry</button>
-        <p class="form-msg" id="memberMsg">Thank you — your enquiry has been noted. This is a design placeholder form; connect it to a backend to receive real submissions.</p>
+        <p class="form-msg" id="memberMsg">Thank you — your enquiry has been noted.</p>
       </form>
     </div>
   </div>
@@ -700,49 +816,48 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
     <div class="proj-grid reveal">
       <div class="proj-card">
         <div class="ph ph-moss"><div class="icon-tile"><svg><use href="#icon-sprout"/></svg></div></div>
-        <div class="proj-meta"><span>Kitchen Gardens</span><span>Placeholder date</span></div>
+        <div class="proj-meta"><span>Kitchen Gardens</span></div>
         <h4>Kitchen Garden Initiative</h4>
-        <p>Description placeholder — details to be added.</p>
+        <p>Full details on this initiative will be added here as the programme develops.</p>
         <span class="readmore">Read More →</span>
       </div>
       <div class="proj-card">
         <div class="ph ph-clay"><div class="icon-tile"><svg><use href="#icon-cycle"/></svg></div></div>
-        <div class="proj-meta"><span>Sustainability</span><span>Placeholder date</span></div>
+        <div class="proj-meta"><span>Sustainability</span></div>
         <h4>Sustainable Agriculture Programme</h4>
-        <p>Description placeholder — details to be added.</p>
+        <p>Full details on this initiative will be added here as the programme develops.</p>
         <span class="readmore">Read More →</span>
       </div>
       <div class="proj-card">
         <div class="ph ph-tide"><div class="icon-tile"><svg><use href="#icon-people"/></svg></div></div>
-        <div class="proj-meta"><span>Mobilization</span><span>Placeholder date</span></div>
+        <div class="proj-meta"><span>Mobilization</span></div>
         <h4>Farmer Mobilization Drive</h4>
-        <p>Description placeholder — details to be added.</p>
+        <p>Full details on this initiative will be added here as the programme develops.</p>
         <span class="readmore">Read More →</span>
       </div>
       <div class="proj-card">
         <div class="ph ph-forest"><div class="icon-tile"><svg><use href="#icon-book"/></svg></div></div>
-        <div class="proj-meta"><span>Training</span><span>Placeholder date</span></div>
+        <div class="proj-meta"><span>Training</span></div>
         <h4>Training Programme Series</h4>
-        <p>Description placeholder — details to be added.</p>
+        <p>Full details on this initiative will be added here as the programme develops.</p>
         <span class="readmore">Read More →</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ NEWS ============ -->
+<!-- ============ WHAT'S GROWING ============ -->
 <section class="news section" id="news">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow">News &amp; Updates</div>
-      <h2>What's happening at VIZFARM.</h2>
+      <div class="eyebrow">What's Growing</div>
+      <h2>Updates from VIZFARM.</h2>
+      <p>Farmer meetings, training programmes, new initiatives, and business developments will be featured here as they happen.</p>
     </div>
-    <div class="news-list reveal">
-      <div class="news-item"><span class="news-date">Date placeholder</span><h4>Farmer meeting — placeholder headline</h4><span class="tag">Meeting</span></div>
-      <div class="news-item"><span class="news-date">Date placeholder</span><h4>Training programme — placeholder headline</h4><span class="tag">Training</span></div>
-      <div class="news-item"><span class="news-date">Date placeholder</span><h4>New partnership — placeholder headline</h4><span class="tag">Partnership</span></div>
-      <div class="news-item"><span class="news-date">Date placeholder</span><h4>Product launch — placeholder headline</h4><span class="tag">Product</span></div>
-      <div class="news-item"><span class="news-date">Date placeholder</span><h4>Business development — placeholder headline</h4><span class="tag">Business</span></div>
+    <div class="why-grid reveal" style="margin-top:20px;">
+      <div class="why-card"><span class="wnum">01</span><h4>Meetings &amp; Mobilisation</h4><p>Updates from farmer meetings and community mobilisation activities.</p></div>
+      <div class="why-card"><span class="wnum">02</span><h4>Training Programmes</h4><p>Capacity-building sessions and agricultural skill development.</p></div>
+      <div class="why-card"><span class="wnum">03</span><h4>Business &amp; Partnerships</h4><p>New initiatives, partnerships, and business development as they happen.</p></div>
     </div>
   </div>
 </section>
@@ -763,14 +878,14 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
       <button class="prod-tab" data-gal="events">Events</button>
     </div>
     <div class="gal-grid reveal" id="galGrid">
-      <div class="gal-item" data-cat="farmers" style="height:280px"><div class="ph ph-moss" style="height:100%"><span class="gal-cat">Farmers</span><span class="ph-label">Placeholder</span></div></div>
-      <div class="gal-item" data-cat="meetings" style="height:200px"><div class="ph ph-forest" style="height:100%"><span class="gal-cat">Meetings</span><span class="ph-label">Placeholder</span></div></div>
+      <div class="gal-item" data-cat="farmers" style="height:280px"><div class="ph ph-moss" style="height:100%"><div class="ph-center-icon"><svg><use href="#icon-camera"/></svg></div><span class="gal-cat">Farmers</span></div></div>
+      <div class="gal-item" data-cat="meetings" style="height:200px"><div class="ph ph-forest" style="height:100%"><div class="ph-center-icon"><svg><use href="#icon-camera"/></svg></div><span class="gal-cat">Meetings</span></div></div>
       <div class="gal-item" data-cat="agriculture" style="height:320px"><div class="ph" style="height:100%"><img src="assets/grading-vegetables.jpg" alt="VIZFARM farmers collecting and grading vegetables" style="width:100%;height:100%;object-fit:cover;"><span class="gal-cat">Agriculture</span></div></div>
-      <div class="gal-item" data-cat="training" style="height:230px"><div class="ph ph-tide" style="height:100%"><span class="gal-cat">Training</span><span class="ph-label">Placeholder</span></div></div>
-      <div class="gal-item" data-cat="events" style="height:260px"><div class="ph ph-moss" style="height:100%"><span class="gal-cat">Events</span><span class="ph-label">Placeholder</span></div></div>
-      <div class="gal-item" data-cat="farmers" style="height:210px"><div class="ph ph-clay" style="height:100%"><span class="gal-cat">Farmers</span><span class="ph-label">Placeholder</span></div></div>
-      <div class="gal-item" data-cat="agriculture" style="height:290px"><div class="ph ph-forest" style="height:100%"><span class="gal-cat">Agriculture</span><span class="ph-label">Placeholder</span></div></div>
-      <div class="gal-item" data-cat="events" style="height:240px"><div class="ph ph-tide" style="height:100%"><span class="gal-cat">Events</span><span class="ph-label">Placeholder</span></div></div>
+      <div class="gal-item" data-cat="training" style="height:230px"><div class="ph ph-tide" style="height:100%"><div class="ph-center-icon"><svg><use href="#icon-camera"/></svg></div><span class="gal-cat">Training</span></div></div>
+      <div class="gal-item" data-cat="events" style="height:260px"><div class="ph ph-moss" style="height:100%"><div class="ph-center-icon"><svg><use href="#icon-camera"/></svg></div><span class="gal-cat">Events</span></div></div>
+      <div class="gal-item" data-cat="farmers" style="height:210px"><div class="ph ph-clay" style="height:100%"><div class="ph-center-icon"><svg><use href="#icon-camera"/></svg></div><span class="gal-cat">Farmers</span></div></div>
+      <div class="gal-item" data-cat="agriculture" style="height:290px"><div class="ph ph-forest" style="height:100%"><div class="ph-center-icon"><svg><use href="#icon-camera"/></svg></div><span class="gal-cat">Agriculture</span></div></div>
+      <div class="gal-item" data-cat="events" style="height:240px"><div class="ph ph-tide" style="height:100%"><div class="ph-center-icon"><svg><use href="#icon-camera"/></svg></div><span class="gal-cat">Events</span></div></div>
     </div>
   </div>
 </section>
@@ -778,8 +893,8 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
 <div class="lightbox" id="lightbox">
   <div class="lightbox-inner">
     <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
-    <div class="ph ph-forest" id="lightboxImg" style="aspect-ratio:4/3;"><span class="ph-label" id="lightboxPhLabel">Placeholder</span><img id="lightboxRealImg" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"></div>
-    <p class="lightbox-cap" id="lightboxCap">Photo placeholder</p>
+    <div class="ph ph-forest" id="lightboxImg" style="aspect-ratio:4/3;"><div class="ph-center-icon" id="lightboxPhLabel"><svg><use href="#icon-camera"/></svg></div><img id="lightboxRealImg" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"></div>
+    <p class="lightbox-cap" id="lightboxCap">Photo coming soon</p>
   </div>
 </div>
 
@@ -791,15 +906,15 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
       <h2 style="font-size:clamp(28px,3.6vw,40px); color:var(--forest); margin-top:14px;">Get in touch.</h2>
       <div class="cinfo-block"><span class="clabel">Organization</span><div class="cval">VIZFARM Farmer Producer Company Limited</div></div>
       <div class="cinfo-block"><span class="clabel">Location</span><div class="cval">Vizhinjam, Thiruvananthapuram, Kerala, India</div></div>
-      <div class="cinfo-block"><span class="clabel">Phone</span><div class="cval">[Phone number placeholder]</div></div>
-      <div class="cinfo-block"><span class="clabel">Email</span><div class="cval">[Email address placeholder]</div></div>
-      <div class="cinfo-block"><span class="clabel">WhatsApp</span><div class="cval">[WhatsApp number placeholder]</div></div>
+      <div class="cinfo-block"><span class="clabel">Phone</span><div class="cval" style="color:var(--ink-soft); font-weight:400; font-style:italic;">To be added</div></div>
+      <div class="cinfo-block"><span class="clabel">Email</span><div class="cval" style="color:var(--ink-soft); font-weight:400; font-style:italic;">To be added</div></div>
+      <div class="cinfo-block"><span class="clabel">WhatsApp</span><div class="cval" style="color:var(--ink-soft); font-weight:400; font-style:italic;">To be added</div></div>
       <div class="social-row">
         <a href="#" aria-label="Facebook">f</a>
         <a href="#" aria-label="Instagram">ig</a>
         <a href="#" aria-label="LinkedIn">in</a>
       </div>
-      <div class="map-ph ph ph-sand"><span class="ph-label">Google Maps placeholder</span></div>
+      <div class="map-ph ph ph-sand"><div class="ph-center-icon" style="color:var(--ink-soft); opacity:0.4;"><svg><use href="#icon-camera"/></svg></div><span class="soon-pill" style="position:relative;z-index:2;">Map coming soon</span></div>
     </div>
     <div class="form-card reveal">
       <h3>Send a Message</h3>
@@ -812,8 +927,20 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
           <div class="field full"><label for="cMsg">Message</label><textarea id="cMsg" required></textarea></div>
         </div>
         <button type="submit" class="btn btn-primary">Send Message</button>
-        <p class="form-msg" id="contactMsg">Thank you — your message has been noted. This is a design placeholder form; connect it to a backend to receive real submissions.</p>
+        <p class="form-msg" id="contactMsg">Thank you — your message has been noted.</p>
       </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final-cta">
+  <div class="wrap">
+    <h2 class="reveal">Let's grow something bigger.</h2>
+    <p class="reveal">VIZFARM is building new possibilities by bringing farmers, agriculture, business, and future opportunities together.</p>
+    <div class="hero-actions reveal">
+      <a href="#membership" class="btn btn-primary">Become a Member →</a>
+      <a href="#contact" class="btn btn-outline">Partner With Us →</a>
     </div>
   </div>
 </section>
@@ -837,27 +964,27 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
         <h5>Quick Links</h5>
         <ul>
           <li><a href="#about">About Us</a></li>
+          <li><a href="#why-vizfarm">Why VIZFARM</a></li>
+          <li><a href="#our-journey">Our Journey</a></li>
           <li><a href="#what-we-do">What We Do</a></li>
-          <li><a href="#products">Products</a></li>
-          <li><a href="#membership">Membership</a></li>
         </ul>
       </div>
       <div class="foot-col">
         <h5>More</h5>
         <ul>
+          <li><a href="#products">Products</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#news">News</a></li>
+          <li><a href="#news">What's Growing</a></li>
           <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
       <div class="foot-col">
-        <h5>Connect</h5>
+        <h5>Get Involved</h5>
         <ul>
+          <li><a href="#membership">Membership</a></li>
+          <li><a href="#contact">Contact</a></li>
           <li><a href="#">Facebook</a></li>
           <li><a href="#">Instagram</a></li>
-          <li><a href="#">LinkedIn</a></li>
-          <li><a href="#">WhatsApp</a></li>
         </ul>
       </div>
     </div>
@@ -932,7 +1059,7 @@ document.querySelectorAll('.gal-item').forEach(item=>{
       lbRealImg.style.display = 'none';
       lbPhLabel.style.display = '';
       lbImg.className = 'ph ' + phClass;
-      lbCap.textContent = 'Photo placeholder — ' + cat.charAt(0).toUpperCase() + cat.slice(1);
+      lbCap.textContent = 'Photo coming soon — ' + cat.charAt(0).toUpperCase() + cat.slice(1);
     }
     lightbox.classList.add('open');
   });
