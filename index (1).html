@@ -107,7 +107,6 @@ button{font-family:inherit;cursor:pointer;}
 .ph-moss{background-color:var(--moss);}
 .ph-sand{background-color:var(--sand-deep);}
 .ph-sand .ph-label{color:var(--ink); background:rgba(245,241,230,0.7); border-color:var(--line);}
-.ph-photo{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;}
 
 /* ============ NAV ============ */
 header{
@@ -233,6 +232,8 @@ header{
 .pitem{aspect-ratio:3/4; position:relative;}
 .pitem .ph{height:100%;}
 .pitem .pname{position:absolute; bottom:12px; left:12px; right:12px; font-family:var(--body); font-weight:600; font-size:13.5px; color:var(--paper); z-index:2;}
+.icon-tile{width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:rgba(252,250,244,0.9);}
+.icon-tile svg{width:38%; height:38%;}
 @media (max-width:900px){.prod-panel.active{grid-template-columns:repeat(3,1fr);}}
 @media (max-width:560px){.prod-panel.active{grid-template-columns:repeat(2,1fr);}}
 
@@ -380,6 +381,29 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
 </head>
 <body>
 
+<!-- Original icon sprite — hand-drawn line icons, used across Products, Projects, and the Vizhinjam Advantage illustration -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+  <symbol id="icon-veg" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 54V30"/><path d="M32 30C32 30 20 26 20 14C20 14 32 14 32 26"/><path d="M32 34C32 34 44 30 44 18C44 18 32 18 32 30"/><path d="M22 54H42"/></g></symbol>
+  <symbol id="icon-fruit" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="26" cy="38" r="14"/><circle cx="42" cy="34" r="10"/><path d="M28 24C28 24 28 16 34 12"/><path d="M34 12C34 12 40 12 40 18"/></g></symbol>
+  <symbol id="icon-banana" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 44C14 44 20 50 30 50C44 50 52 38 50 24"/><path d="M50 24C50 24 46 18 40 20"/><path d="M14 44C10 40 10 32 16 26C24 18 36 16 44 20"/></g></symbol>
+  <symbol id="icon-mango" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 14C20 14 14 26 16 36C18 46 26 52 34 50C44 47 48 34 42 22C39 16 35 14 32 14Z"/><path d="M32 14V8"/></g></symbol>
+  <symbol id="icon-jackfruit" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="32" cy="34" rx="16" ry="20"/><path d="M32 10V16"/><circle cx="24" cy="24" r="1.6" fill="currentColor" stroke="none"/><circle cx="34" cy="20" r="1.6" fill="currentColor" stroke="none"/><circle cx="42" cy="28" r="1.6" fill="currentColor" stroke="none"/><circle cx="20" cy="36" r="1.6" fill="currentColor" stroke="none"/><circle cx="30" cy="34" r="1.6" fill="currentColor" stroke="none"/><circle cx="40" cy="38" r="1.6" fill="currentColor" stroke="none"/><circle cx="24" cy="46" r="1.6" fill="currentColor" stroke="none"/><circle cx="36" cy="48" r="1.6" fill="currentColor" stroke="none"/></g></symbol>
+  <symbol id="icon-pepper" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14C14 14 40 20 46 40C50 54 34 54 30 44"/><circle cx="22" cy="24" r="3"/><circle cx="30" cy="34" r="3"/><circle cx="24" cy="40" r="3"/><circle cx="34" cy="46" r="3"/></g></symbol>
+  <symbol id="icon-cardamom" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="32" cy="32" rx="12" ry="18"/><path d="M32 14V10"/><path d="M22 24H42"/><path d="M20 32H44"/><path d="M22 40H42"/></g></symbol>
+  <symbol id="icon-ginger" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 40C14 32 18 22 26 20C24 26 30 26 30 20C36 20 40 28 36 34C42 34 46 42 40 48C32 54 20 50 18 40Z"/></g></symbol>
+  <symbol id="icon-nutmeg" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="16"/><path d="M32 16V48"/><path d="M22 22C26 26 26 38 22 42"/><path d="M42 22C38 26 38 38 42 42"/></g></symbol>
+  <symbol id="icon-processed" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="22" width="28" height="30" rx="3"/><path d="M24 22V16C24 13 26 12 28 12H36C38 12 40 13 40 16V22"/><path d="M18 32H46"/></g></symbol>
+  <symbol id="icon-packaged" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22L32 12L52 22V44L32 54L12 44Z"/><path d="M12 22L32 32L52 22"/><path d="M32 32V54"/></g></symbol>
+  <symbol id="icon-star" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 10L38 26L54 28L42 39L46 55L32 46L18 55L22 39L10 28L26 26Z"/></g></symbol>
+  <symbol id="icon-sprout" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 54V32"/><path d="M32 32C32 32 18 30 16 16C16 16 30 16 32 28"/><path d="M32 32C32 32 46 30 48 16C48 16 34 16 32 28"/><path d="M18 54H46"/></g></symbol>
+  <symbol id="icon-cycle" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M46 20C42 14 35 10 28 11C18 12 11 21 12 31"/><path d="M18 44C22 50 29 54 36 53C46 52 53 43 52 33"/><path d="M46 20L48 10L38 13"/><path d="M18 44L16 54L26 51"/></g></symbol>
+  <symbol id="icon-people" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="22" r="6"/><circle cx="42" cy="22" r="6"/><path d="M10 48C10 38 16 32 22 32C28 32 32 36 32 40"/><path d="M32 40C32 36 36 32 42 32C48 32 54 38 54 48"/></g></symbol>
+  <symbol id="icon-book" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 18C28 14 18 13 12 15V45C18 43 28 44 32 48"/><path d="M32 18C36 14 46 13 52 15V45C46 43 36 44 32 48"/><path d="M32 18V48"/></g></symbol>
+</defs>
+</svg>
+
+
 <!-- ============ HEADER / NAV ============ -->
 <header>
   <div class="nav">
@@ -435,7 +459,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
       </div>
     </div>
     <div class="hero-visual">
-      <div class="ph ph-tide"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Coconut_tree_from_Kerala.jpg?width=800" alt="Farms and coastline near Vizhinjam, Kerala"></div>
+      <img src="assets/hero-farm.jpg" alt="VIZFARM farmers at work in the fields, Vizhinjam" style="width:100%;height:100%;object-fit:cover;">
     </div>
   </div>
 
@@ -480,7 +504,7 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
         </ul>
       </div>
       <div class="reveal">
-        <div class="ph ph-forest" style="aspect-ratio:4/5; margin-bottom:28px;"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/India_Farming.jpg?width=800" alt="Farmer members and board of VIZFARM"></div>
+        <div class="ph ph-forest" style="aspect-ratio:4/5; margin-bottom:28px;"><span class="ph-label">Photo placeholder — Board / farmer members</span></div>
         <div class="timeline">
           <div class="eyebrow" style="margin-bottom:18px;">Our Path</div>
           <div class="timeline-track">
@@ -533,22 +557,22 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
     </div>
     <div class="prod-panels reveal">
       <div class="prod-panel active" id="fresh">
-        <div class="pitem"><div class="ph ph-moss"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vegetable_market,_Ahmedabad.jpg?width=600" alt="Vegetables"><span class="pname">Vegetables</span></div></div>
-        <div class="pitem"><div class="ph ph-clay"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Coconut_tree_from_Kerala.jpg?width=600" alt="Fruits"><span class="pname">Fruits</span></div></div>
-        <div class="pitem"><div class="ph ph-forest"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Banana_plantation.jpg?width=600" alt="Banana"><span class="pname">Banana</span></div></div>
-        <div class="pitem"><div class="ph ph-tide"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Banana_plantation.jpg?width=600" alt="Mango"><span class="pname">Mango</span></div></div>
-        <div class="pitem"><div class="ph ph-moss"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Black_Pepper_on_Jackfruit_Tree_-_Kerala_-_IMG_3623.jpg?width=600" alt="Jackfruit"><span class="pname">Jackfruit</span></div></div>
+        <div class="pitem"><div class="ph ph-moss"><div class="icon-tile"><svg><use href="#icon-veg"/></svg></div><span class="pname">Vegetables</span></div></div>
+        <div class="pitem"><div class="ph ph-clay"><div class="icon-tile"><svg><use href="#icon-fruit"/></svg></div><span class="pname">Fruits</span></div></div>
+        <div class="pitem"><div class="ph ph-forest"><div class="icon-tile"><svg><use href="#icon-banana"/></svg></div><span class="pname">Banana</span></div></div>
+        <div class="pitem"><div class="ph ph-tide"><div class="icon-tile"><svg><use href="#icon-mango"/></svg></div><span class="pname">Mango</span></div></div>
+        <div class="pitem"><div class="ph ph-moss"><div class="icon-tile"><svg><use href="#icon-jackfruit"/></svg></div><span class="pname">Jackfruit</span></div></div>
       </div>
       <div class="prod-panel" id="spices">
-        <div class="pitem"><div class="ph ph-clay"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Black_Pepper_on_Jackfruit_Tree_-_Kerala_-_IMG_3623.jpg?width=600" alt="Pepper"><span class="pname">Pepper</span></div></div>
-        <div class="pitem"><div class="ph ph-forest"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Spice_market-India.jpg?width=600" alt="Cardamom"><span class="pname">Cardamom</span></div></div>
-        <div class="pitem"><div class="ph ph-moss"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Spice_market-India.jpg?width=600" alt="Ginger"><span class="pname">Ginger</span></div></div>
-        <div class="pitem"><div class="ph ph-tide"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Spice_market-India.jpg?width=600" alt="Nutmeg"><span class="pname">Nutmeg</span></div></div>
+        <div class="pitem"><div class="ph ph-clay"><div class="icon-tile"><svg><use href="#icon-pepper"/></svg></div><span class="pname">Pepper</span></div></div>
+        <div class="pitem"><div class="ph ph-forest"><div class="icon-tile"><svg><use href="#icon-cardamom"/></svg></div><span class="pname">Cardamom</span></div></div>
+        <div class="pitem"><div class="ph ph-moss"><div class="icon-tile"><svg><use href="#icon-ginger"/></svg></div><span class="pname">Ginger</span></div></div>
+        <div class="pitem"><div class="ph ph-tide"><div class="icon-tile"><svg><use href="#icon-nutmeg"/></svg></div><span class="pname">Nutmeg</span></div></div>
       </div>
       <div class="prod-panel" id="value">
-        <div class="pitem"><div class="ph ph-tide"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vegetable_market,_Ahmedabad.jpg?width=600" alt="Processed Foods"><span class="pname">Processed Foods</span></div></div>
-        <div class="pitem"><div class="ph ph-clay"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vegetable_market,_Ahmedabad.jpg?width=600" alt="Packaged Products"><span class="pname">Packaged Products</span></div></div>
-        <div class="pitem"><div class="ph ph-forest"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Spice_market-India.jpg?width=600" alt="VIZFARM Branded Range"><span class="pname">VIZFARM Branded Range — Coming Soon</span></div></div>
+        <div class="pitem"><div class="ph ph-tide"><div class="icon-tile"><svg><use href="#icon-processed"/></svg></div><span class="pname">Processed Foods</span></div></div>
+        <div class="pitem"><div class="ph ph-clay"><div class="icon-tile"><svg><use href="#icon-packaged"/></svg></div><span class="pname">Packaged Products</span></div></div>
+        <div class="pitem"><div class="ph ph-forest"><div class="icon-tile"><svg><use href="#icon-star"/></svg></div><span class="pname">VIZFARM Branded Range — Coming Soon</span></div></div>
       </div>
     </div>
   </div>
@@ -587,7 +611,43 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
       <span class="adv-tag">Future potential &amp; opportunity — not a current export claim</span>
     </div>
     <div class="adv-visual reveal">
-      <div class="ph ph-sand"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/First_Mother_Ship_MV_San_Fernando_at_Vizhinjam_International_Seaport.jpg?width=800" alt="Port and agricultural connectivity near Vizhinjam"></div>
+      <div class="ph ph-sand" style="aspect-ratio:1/1;">
+        <svg viewBox="0 0 500 500" style="width:100%;height:100%;position:absolute;inset:0;" preserveAspectRatio="xMidYMid meet">
+          <!-- sky/land backdrop -->
+          <rect x="0" y="0" width="500" height="500" fill="none"/>
+          <!-- tideline dividing land (left/top) and sea (right/bottom) -->
+          <path d="M0,190 C120,150 180,230 260,200 C340,170 380,240 500,210" fill="none" stroke="#1C6E8C" stroke-width="2" stroke-dasharray="1 0" opacity="0.35"/>
+          <!-- land side: plant motif -->
+          <g stroke="#163832" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M110 330V220"/>
+            <path d="M110 220C110 220 70 205 70 155C70 155 110 155 110 195"/>
+            <path d="M110 240C110 240 150 225 150 175C150 175 110 175 110 215"/>
+            <path d="M85 330H135"/>
+          </g>
+          <circle cx="110" cy="150" r="6" fill="#B5652D"/>
+          <circle cx="140" cy="185" r="5" fill="#B5652D"/>
+          <circle cx="80" cy="180" r="5" fill="#B5652D"/>
+          <!-- connecting route: dashed path from farm to port -->
+          <path d="M140 300C220 280 260 320 300 300C340 280 360 300 400 290" fill="none" stroke="#B5652D" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round"/>
+          <!-- sea side: port crane + containers -->
+          <g stroke="#1C6E8C" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M400 330V210"/>
+            <path d="M370 220H440"/>
+            <path d="M400 220L380 250"/>
+            <path d="M400 220L420 250"/>
+          </g>
+          <g fill="#4B7857" opacity="0.9">
+            <rect x="355" y="330" width="34" height="26" rx="2"/>
+            <rect x="392" y="330" width="34" height="26" rx="2"/>
+            <rect x="373" y="304" width="34" height="26" rx="2"/>
+          </g>
+          <!-- waterline -->
+          <path d="M0 400C60 385 90 415 150 400C210 385 250 415 310 400C370 385 440 415 500 400" fill="none" stroke="#1C6E8C" stroke-width="3" opacity="0.6"/>
+          <path d="M0 425C60 412 90 438 150 425C210 412 250 438 310 425C370 412 440 438 500 425" fill="none" stroke="#1C6E8C" stroke-width="2" opacity="0.35"/>
+          <text x="30" y="460" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1" fill="#4A5850" opacity="0.75">FARM</text>
+          <text x="430" y="460" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1" fill="#4A5850" opacity="0.75" text-anchor="end">PORT</text>
+        </svg>
+      </div>
     </div>
   </div>
 </section>
@@ -639,28 +699,28 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
     </div>
     <div class="proj-grid reveal">
       <div class="proj-card">
-        <div class="ph ph-moss"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/India_Farming.jpg?width=800" alt="Kitchen Garden Initiative"></div>
+        <div class="ph ph-moss"><div class="icon-tile"><svg><use href="#icon-sprout"/></svg></div></div>
         <div class="proj-meta"><span>Kitchen Gardens</span><span>Placeholder date</span></div>
         <h4>Kitchen Garden Initiative</h4>
         <p>Description placeholder — details to be added.</p>
         <span class="readmore">Read More →</span>
       </div>
       <div class="proj-card">
-        <div class="ph ph-clay"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Coconut_tree_from_Kerala.jpg?width=800" alt="Sustainable Agriculture Programme"></div>
+        <div class="ph ph-clay"><div class="icon-tile"><svg><use href="#icon-cycle"/></svg></div></div>
         <div class="proj-meta"><span>Sustainability</span><span>Placeholder date</span></div>
         <h4>Sustainable Agriculture Programme</h4>
         <p>Description placeholder — details to be added.</p>
         <span class="readmore">Read More →</span>
       </div>
       <div class="proj-card">
-        <div class="ph ph-tide"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Agriculture_in_India,_Farmer_Punjab.jpg?width=800" alt="Farmer Mobilization Drive"></div>
+        <div class="ph ph-tide"><div class="icon-tile"><svg><use href="#icon-people"/></svg></div></div>
         <div class="proj-meta"><span>Mobilization</span><span>Placeholder date</span></div>
         <h4>Farmer Mobilization Drive</h4>
         <p>Description placeholder — details to be added.</p>
         <span class="readmore">Read More →</span>
       </div>
       <div class="proj-card">
-        <div class="ph ph-forest"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/India_Farming.jpg?width=800" alt="Training Programme Series"></div>
+        <div class="ph ph-forest"><div class="icon-tile"><svg><use href="#icon-book"/></svg></div></div>
         <div class="proj-meta"><span>Training</span><span>Placeholder date</span></div>
         <h4>Training Programme Series</h4>
         <p>Description placeholder — details to be added.</p>
@@ -703,14 +763,14 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
       <button class="prod-tab" data-gal="events">Events</button>
     </div>
     <div class="gal-grid reveal" id="galGrid">
-      <div class="gal-item" data-cat="farmers" style="height:280px"><div class="ph ph-moss" style="height:100%"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Agriculture_in_India,_Farmer_Punjab.jpg?width=600" alt="Farmers"><span class="gal-cat">Farmers</span></div></div>
-      <div class="gal-item" data-cat="meetings" style="height:200px"><div class="ph ph-forest" style="height:100%"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/India_Farming.jpg?width=600" alt="Meetings"><span class="gal-cat">Meetings</span></div></div>
-      <div class="gal-item" data-cat="agriculture" style="height:320px"><div class="ph ph-clay" style="height:100%"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Coconut_tree_from_Kerala.jpg?width=600" alt="Agriculture"><span class="gal-cat">Agriculture</span></div></div>
-      <div class="gal-item" data-cat="training" style="height:230px"><div class="ph ph-tide" style="height:100%"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/India_Farming.jpg?width=600" alt="Training"><span class="gal-cat">Training</span></div></div>
-      <div class="gal-item" data-cat="events" style="height:260px"><div class="ph ph-moss" style="height:100%"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Spice_market-India.jpg?width=600" alt="Events"><span class="gal-cat">Events</span></div></div>
-      <div class="gal-item" data-cat="farmers" style="height:210px"><div class="ph ph-clay" style="height:100%"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Agriculture_in_India,_Farmer_Punjab.jpg?width=600" alt="Farmers"><span class="gal-cat">Farmers</span></div></div>
-      <div class="gal-item" data-cat="agriculture" style="height:290px"><div class="ph ph-forest" style="height:100%"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vegetable_market,_Ahmedabad.jpg?width=600" alt="Agriculture"><span class="gal-cat">Agriculture</span></div></div>
-      <div class="gal-item" data-cat="events" style="height:240px"><div class="ph ph-tide" style="height:100%"><img class="ph-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vizhinjam_%28cropped%29.jpg?width=600" alt="Events"><span class="gal-cat">Events</span></div></div>
+      <div class="gal-item" data-cat="farmers" style="height:280px"><div class="ph ph-moss" style="height:100%"><span class="gal-cat">Farmers</span><span class="ph-label">Placeholder</span></div></div>
+      <div class="gal-item" data-cat="meetings" style="height:200px"><div class="ph ph-forest" style="height:100%"><span class="gal-cat">Meetings</span><span class="ph-label">Placeholder</span></div></div>
+      <div class="gal-item" data-cat="agriculture" style="height:320px"><div class="ph" style="height:100%"><img src="assets/grading-vegetables.jpg" alt="VIZFARM farmers collecting and grading vegetables" style="width:100%;height:100%;object-fit:cover;"><span class="gal-cat">Agriculture</span></div></div>
+      <div class="gal-item" data-cat="training" style="height:230px"><div class="ph ph-tide" style="height:100%"><span class="gal-cat">Training</span><span class="ph-label">Placeholder</span></div></div>
+      <div class="gal-item" data-cat="events" style="height:260px"><div class="ph ph-moss" style="height:100%"><span class="gal-cat">Events</span><span class="ph-label">Placeholder</span></div></div>
+      <div class="gal-item" data-cat="farmers" style="height:210px"><div class="ph ph-clay" style="height:100%"><span class="gal-cat">Farmers</span><span class="ph-label">Placeholder</span></div></div>
+      <div class="gal-item" data-cat="agriculture" style="height:290px"><div class="ph ph-forest" style="height:100%"><span class="gal-cat">Agriculture</span><span class="ph-label">Placeholder</span></div></div>
+      <div class="gal-item" data-cat="events" style="height:240px"><div class="ph ph-tide" style="height:100%"><span class="gal-cat">Events</span><span class="ph-label">Placeholder</span></div></div>
     </div>
   </div>
 </section>
@@ -718,8 +778,8 @@ footer{background:var(--forest-deep); color:rgba(252,250,244,0.75); padding:70px
 <div class="lightbox" id="lightbox">
   <div class="lightbox-inner">
     <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
-    <div class="ph ph-forest" id="lightboxImg"><img class="ph-photo" id="lightboxImgTag" src="" alt=""></div>
-    <p class="lightbox-cap" id="lightboxCap">Gallery photo</p>
+    <div class="ph ph-forest" id="lightboxImg" style="aspect-ratio:4/3;"><span class="ph-label" id="lightboxPhLabel">Placeholder</span><img id="lightboxRealImg" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"></div>
+    <p class="lightbox-cap" id="lightboxCap">Photo placeholder</p>
   </div>
 </div>
 
@@ -853,16 +913,27 @@ document.querySelectorAll('.prod-tab[data-gal]').forEach(btn=>{
 // lightbox
 const lightbox = document.getElementById('lightbox');
 const lbImg = document.getElementById('lightboxImg');
-const lbImgTag = document.getElementById('lightboxImgTag');
 const lbCap = document.getElementById('lightboxCap');
+const lbRealImg = document.getElementById('lightboxRealImg');
+const lbPhLabel = document.getElementById('lightboxPhLabel');
 document.querySelectorAll('.gal-item').forEach(item=>{
   item.addEventListener('click', ()=>{
     const cat = item.dataset.cat;
-    const phClass = Array.from(item.querySelector('.ph').classList).find(c=>c.startsWith('ph-') && c!=='ph');
-    const srcImg = item.querySelector('img.ph-photo');
-    lbImg.className = 'ph ' + phClass;
-    if(srcImg){ lbImgTag.src = srcImg.src; lbImgTag.alt = srcImg.alt; }
-    lbCap.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+    const sourceImg = item.querySelector('img');
+    if(sourceImg){
+      lbRealImg.src = sourceImg.src;
+      lbRealImg.alt = sourceImg.alt;
+      lbRealImg.style.display = 'block';
+      lbPhLabel.style.display = 'none';
+      lbImg.className = 'ph';
+      lbCap.textContent = sourceImg.alt;
+    } else {
+      const phClass = Array.from(item.querySelector('.ph').classList).find(c=>c.startsWith('ph-') && c!=='ph');
+      lbRealImg.style.display = 'none';
+      lbPhLabel.style.display = '';
+      lbImg.className = 'ph ' + phClass;
+      lbCap.textContent = 'Photo placeholder — ' + cat.charAt(0).toUpperCase() + cat.slice(1);
+    }
     lightbox.classList.add('open');
   });
 });
@@ -870,14 +941,69 @@ document.getElementById('lightboxClose').addEventListener('click', ()=> lightbox
 lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) lightbox.classList.remove('open'); });
 document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') lightbox.classList.remove('open'); });
 
-// forms (placeholder submit)
+// forms — submit to Google Sheet via Apps Script Web App
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwsswQZAECznN0fS8tSTo9tAy8Brx31gFG3fBhajzMGCp_lRRpgcCz9yFBqjQX4ybwW/exec';
+
+function sendToSheet(payload, msgEl, formEl){
+  const btn = formEl.querySelector('button[type="submit"]');
+  const originalText = btn.textContent;
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  fetch(SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify(payload)
+  })
+  .then(()=>{
+    msgEl.textContent = 'Thank you — your submission has been received.';
+    msgEl.classList.add('show');
+    formEl.reset();
+  })
+  .catch(()=>{
+    msgEl.textContent = 'Something went wrong sending this. Please try again or contact us directly.';
+    msgEl.style.color = '#B5652D';
+    msgEl.classList.add('show');
+  })
+  .finally(()=>{
+    btn.textContent = originalText;
+    btn.disabled = false;
+  });
+}
+
 document.getElementById('memberForm').addEventListener('submit', (e)=>{
   e.preventDefault();
-  document.getElementById('memberMsg').classList.add('show');
+  const formEl = e.target;
+  const payload = {
+    formType: 'Membership',
+    name: document.getElementById('mName').value,
+    phone: document.getElementById('mPhone').value,
+    village: document.getElementById('mVillage').value,
+    farmingType: document.getElementById('mType').value,
+    crops: document.getElementById('mCrops').value,
+    landArea: document.getElementById('mLand').value,
+    email: '',
+    message: document.getElementById('mMsg').value
+  };
+  sendToSheet(payload, document.getElementById('memberMsg'), formEl);
 });
+
 document.getElementById('contactForm').addEventListener('submit', (e)=>{
   e.preventDefault();
-  document.getElementById('contactMsg').classList.add('show');
+  const formEl = e.target;
+  const payload = {
+    formType: 'Contact',
+    name: document.getElementById('cName').value,
+    phone: document.getElementById('cPhone').value,
+    village: '',
+    farmingType: '',
+    crops: '',
+    landArea: '',
+    email: document.getElementById('cEmail').value,
+    message: document.getElementById('cMsg').value
+  };
+  sendToSheet(payload, document.getElementById('contactMsg'), formEl);
 });
 
 // sticky header shadow
